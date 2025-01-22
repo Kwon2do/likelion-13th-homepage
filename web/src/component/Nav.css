@@ -1,4 +1,8 @@
-.nav-link.active {
-    font-weight: 700;
-    color: #ff7710 !important;
+.nav-link:hover {
+    font-family: "Pretendard-bold" !important;
+    color: rgb(255, 119, 16);
 }
+.nav-link.active {
+   font-family: "Pretendard-bold" !important;
+   color: rgb(255, 119, 16) !important;
+  }

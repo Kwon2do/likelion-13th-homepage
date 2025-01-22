@@ -1,0 +1,26 @@
+#dropdown-basic, .dropdown-toggle.btn.btn-success{
+    width: 50vw !important;
+    height: 60px;
+    background-color: black;
+    border-radius: 20px;
+    border: none;
+    margin-left: 25vw !important;
+    margin-right: 25vw !important;
+    margin-top: 20px !important;
+    @media (max-width: 768px) {
+        width: 80vw !important;
+        margin-left: 10vw !important;
+        margin-right: 10vw !important;
+    }
+}
+.dropdown-menu.show {
+    width: 50vw !important;
+    border-radius: 20px;
+    border: none;
+    text-align: center;
+    background-color: white !important;
+
+    @media (max-width: 768px) {
+        width: 80vw !important;
+    }
+}
