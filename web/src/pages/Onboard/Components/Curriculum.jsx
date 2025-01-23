@@ -35,17 +35,16 @@ export default function Curriculum() {
 
 const StyledTabs = styled(Tabs)`
   padding: 50px 100px 20px 100px;
-
   @media (max-width: 768px) {
     padding: 20px 0 0 0; /* 모바일 환경에서 패딩 조정 */
   }
 `;
 
 const CustomImg = styled.img`
-  width: 30%;
-  max-width: 150px;
+  width: 10%;
+  max-width: 300px;
   @media (max-width: 768px) {
-    width: 25%;
+    width: 18%;
   }
 `;
 const ImgGroup = styled.div`
