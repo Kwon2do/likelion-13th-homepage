@@ -10,7 +10,6 @@ import SectionDivider from "./Components/Divider";
 import CustomModal from "../../component/Modals";
 import Carousel from "react-bootstrap/Carousel";
 import {
-  CarouselContainer,
   BannerTitle,
   SubTitle,
   Content,

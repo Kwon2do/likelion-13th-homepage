@@ -170,6 +170,7 @@ export const Title = styled.p`
   text-align: center;
   @media (min-width: 992px) {
     font-size: 32px !important;
+    text-align: left;
   }
 `;
 
@@ -189,7 +190,6 @@ export const Description = styled.p`
 export const ResponsiveContainer = styled.div`
   padding: 30px;
   height: 300px;
-
   @media (max-width: 768px) {
     height: 300px;
   }
