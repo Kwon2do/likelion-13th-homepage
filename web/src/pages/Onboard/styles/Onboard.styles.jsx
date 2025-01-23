@@ -4,7 +4,7 @@ import Carousel from "react-bootstrap/Carousel";
 
 export const PageContainer = styled.div`
   width: 100%;
-  overflow-x: hidden; /* 수평 스크롤 방지 */
+  overflow-x: hidden;
 `;
 
 export const Wrapper = styled.section`
