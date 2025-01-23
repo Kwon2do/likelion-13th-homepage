@@ -51,8 +51,7 @@ const ImgGroup = styled.div`
   width: 100%;
   height: 200px;
   display: flex;
-  justify-content: center;
-  gap: 30px;
+  justify-content: space-around;
   align-items: center;
   margin: 100px 0px;
   @media (max-width: 768px) {
