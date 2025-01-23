@@ -8,7 +8,8 @@ export default function CurriculumInfo({ title, content }) {
   );
 }
 const Wrapper = styled.div`
-  padding: 20px 30px;
+  padding: 20px 150px;
+  text-align: left;
 `;
 const Title = styled.div`
   font-family: "Pretendard-bold";
