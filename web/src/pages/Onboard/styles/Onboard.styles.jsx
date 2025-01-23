@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
+import Carousel from "react-bootstrap/Carousel";
+
 export const PageContainer = styled.div`
   width: 100%;
   overflow-x: hidden; /* 수평 스크롤 방지 */
@@ -40,7 +42,7 @@ export const BannerTitle = styled(motion.h1)`
   margin-bottom: 20px;
 
   @media (max-width: 768px) {
-    font-size: 26px;
+    font-size: 24px;
   }
 `;
 
@@ -161,7 +163,7 @@ export const ImageContainer = styled.div`
   }
 `;
 export const Title = styled.p`
-  font-size: 22px !important;
+  font-size: 18px !important;
   font-family: "Pretendard-Bold";
   color: white;
   margin-bottom: 1.75rem;
@@ -179,7 +181,7 @@ export const Description = styled.p`
 
   @media (min-width: 768px) {
     text-align: left;
-    font-size: 17px !important;
+    font-size: 15px !important;
   }
 
   transition: all 0.3s ease;
@@ -189,7 +191,7 @@ export const ResponsiveContainer = styled.div`
   height: 300px;
 
   @media (max-width: 768px) {
-    height: auto;
+    height: 300px;
   }
 `;
 

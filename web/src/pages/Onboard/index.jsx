@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Carousel from "react-bootstrap/Carousel";
 import CurriculumComponent from "./Components/Curriculum";
 import "./styles/CustomUI.css";
 import { aboutUsData } from "../../constants/dummy";
@@ -9,7 +8,9 @@ import QuestionComponent from "./Components/Question";
 import ScheduleComponent from "./Components/Schedule";
 import SectionDivider from "./Components/Divider";
 import CustomModal from "../../component/Modals";
+import Carousel from "react-bootstrap/Carousel";
 import {
+  CarouselContainer,
   BannerTitle,
   SubTitle,
   Content,
