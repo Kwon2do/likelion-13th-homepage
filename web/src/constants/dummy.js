@@ -24,12 +24,17 @@ export const curriculumData = [
   {
     eventKey: "프론트엔드",
     title: "프론트엔드",
-    images: ["/curriculum-img/w3c.png", "/curriculum-img/react.png"],
+    images: [
+      "/curriculum-img/w3c.png",
+      "/curriculum-img/react.png",
+      "/curriculum-img/redux.png",
+      "/curriculum-img/typescript.png",
+    ],
     info: [
       {
         title: "1️⃣ 웹 개발의 핵심인 W3C 기술",
         content:
-          "프론트엔드 개발의 기초인 HTML, CSS, JavaScript를 학습하며, 웹 페이지의 구조와 스타일을 설계하고, 동적인 상호작용을 구현합니다. W3C 표준에 맞춘 코드 작성법을 통해 웹 접근성과 크로스 브라우징 호환성을 고려한 개발 역량을 키웁니다.",
+          "프론트엔드 개발의 기초인 <strong>HTML, CSS, JavaScript</strong>를 학습하며, 웹 페이지의 구조와 스타일을 설계하고, 동적인 상호작용을 구현합니다. <br/>또한, 더 안전하고 유지보수가 쉬운 코드를 작성하기 위해 <strong>TypeScript</strong>를 함께 학습하여 정적 타입을 활용한 안정적인 개발 방법을 익힙니다. ",
       },
       {
         title: "2️⃣ 트렌디한 웹페이지를 위한 반응형 UI/UX",
@@ -37,7 +42,12 @@ export const curriculumData = [
           "<strong>반응형 디자인</strong>은 현대 웹 개발의 필수 기술입니다. 다양한 디바이스(PC, 태블릿, 모바일)에 최적화된 사용자 경험을 제공하기 위해 미디어 쿼리와 플렉스박스, 그리드 레이아웃 같은 CSS 기술을 익힙니다.",
       },
       {
-        title: "3️⃣ API 통신 및 실제 배포 경험",
+        title: "3️⃣ 전역 상태 관리 기술 학습",
+        content:
+          "복잡한 웹 애플리케이션에서 상태를 효율적으로 관리하기 위해 <strong>Redux</strong>를 활용한 전역 상태 관리 기술을 학습합니다. <br/>컴포넌트 간 데이터 전달 문제를 해결하고, 대규모 프로젝트에서의 데이터 흐름을 구조적으로 관리할 수 있는 방법을 배웁니다. 이를 통해 개발 생산성을 높이고, 유지보수성을 강화할 수 있는 역량을 키웁니다.",
+      },
+      {
+        title: "4️⃣ API 통신 및 실제 배포 경험",
         content:
           "RESTful API를 활용하여 데이터를 요청하고, 이를 사용자에게 시각적으로 보여주는 기술을 학습합니다. <br/> AWS, Vercel과 같은 배포 도구를 사용해 실제 웹 애플리케이션을 배포하며, 자신의 아이디어를 실현하는 경험을 쌓습니다.",
       },
@@ -50,6 +60,7 @@ export const curriculumData = [
       "/curriculum-img/mySQL.png",
       "/curriculum-img/nodejs.png",
       "/curriculum-img/spring.png",
+      "/curriculum-img/aws.png",
     ],
     info: [
       {
@@ -111,5 +122,33 @@ export const aboutUsData = [
     title: "실무 중심의 프로젝트",
     content:
       "실제 IT 현장에서 요구되는 기술과 협업 방식을 프로젝트를 통해 경험합니다. 이러한 실무 중심의 접근은 여러분의 포트폴리오를 더욱 돋보이게 만들어 줄 것입니다.",
+  },
+];
+
+// Activity 더미데이터
+export const activityData = [
+  {
+    id: 1,
+    imgSrc: "/onboard.jpg",
+    title: "아이디어톤",
+    text: "멋쟁이사자처럼에서 창의적이고 혁신적인 아이디어를 현실로 구현하는 활동입니다. 참가자들은 팀을 이루어 새로운 아이디어를 기획하고 개발하며, 실질적인 문제 해결 능력을 키웁니다.",
+  },
+  {
+    id: 2,
+    imgSrc: "/activity-img/festival.jpeg",
+    title: "인천대학교 축제 사이트 제작",
+    text: "멋쟁이사자처럼에서는 축제 기간을 활용하여 자신만의 서비스를 출시하고 실제 사용자들과의 유저 테스트를 진행할 수 있는 기회를 제공합니다. 이 과정에서 사용자 피드백을 반영하며, 서비스 개선 방안을 모색하고, 실제 서비스 운영 경험을 통해 실질적인 실무 감각을 익힐 수 있습니다.",
+  },
+  {
+    id: 3,
+    imgSrc: "/activity-img/hack.jpeg",
+    title: "해커톤",
+    text: "멋쟁이사자처럼의 하이라이트인 해커톤은 짧은 시간 안에 프로젝트를 기획하고 개발하며 팀원들과의 협업 역량을 극대화할 수 있는 활동입니다. 제한된 시간 속에서 창의적인 해결책을 도출하며 문제 해결 능력을 강화하고, 성공적인 결과물을 통해 큰 성취감과 자신감을 얻을 수 있습니다.",
+  },
+  {
+    id: 4,
+    imgSrc: "/activity-img/session.jpg",
+    title: "공통 세션 강의",
+    text: "모든 팀원이 함께 참여하여 GitHub와 같은 협업 툴의 활용법과 공통적으로 알아두면 좋은 협업 지식을 학습하고 공유하는 시간입니다. 이 세션을 통해 각 파트의 진행 상황을 투명하게 공유하며, 협업 과정에서 발생할 수 있는 문제를 효과적으로 해결하는 방법을 익히고 실질적인 협업 역량을 키울 수 있습니다.",
   },
 ];

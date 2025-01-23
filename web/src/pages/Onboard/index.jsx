@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Dropdown from "react-bootstrap/Dropdown";
 import Carousel from "react-bootstrap/Carousel";
-import Curriculum from "./Components/Curriculum";
+import CurriculumComponent from "./Components/Curriculum";
 import "./styles/CustomUI.css";
 import { aboutUsData } from "../../constants/dummy";
 import AboutUsComponent from "../../component/AboutUs/Box-Container";
+import ActivityComponent from "./Components/Activity";
 import {
   BannerTitle,
   SubTitle,
@@ -68,7 +68,11 @@ export default function Onboard() {
       </Section>
       <Section id="curriculum">
         <h2>어떤 것들을 배울 수 있을까요?</h2>
-        <Curriculum />
+        <CurriculumComponent />
+      </Section>
+      <Section id="Activity">
+        <h2>다양한 활동과 배움을 한곳에서!</h2>
+        <ActivityComponent />
       </Section>
     </PageContainer>
   );
