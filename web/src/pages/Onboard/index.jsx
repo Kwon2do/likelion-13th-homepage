@@ -7,6 +7,7 @@ import AboutUsComponent from "../../component/AboutUs/Box-Container";
 import ActivityComponent from "./Components/Activity";
 import QuestionComponent from "./Components/Question";
 import ScheduleComponent from "./Components/Schedule";
+import SectionDivider from "./Components/Divider";
 import {
   BannerTitle,
   SubTitle,
@@ -106,14 +107,15 @@ export default function Onboard() {
         <h2>다양한 활동과 배움을 한곳에서!</h2>
         <ActivityComponent />
       </Section>
-      <Section id="Question">
-        <h2>자주 묻는 질문들</h2>
-        <QuestionComponent />
-      </Section>
       <Section id="schedule">
         <h2>연간 일정</h2>
+        <h2 style={{ color: "darkgray" }}>
+          일년 동안 체계적으로 역량을 쌓을 수 있는 커리큘럼이 준비되어 있어요.
+        </h2>
         <ScheduleComponent />
       </Section>
+      <SectionDivider />
+      <QuestionComponent />
       {showTopButton && (
         <FloatingTopButton onClick={scrollToTop}>TOP ↑</FloatingTopButton>
       )}
