@@ -10,6 +10,9 @@ export default function CurriculumInfo({ title, content }) {
 const Wrapper = styled.div`
   padding: 20px 150px;
   text-align: left;
+  @media (max-width: 980px) {
+    padding: 20px;
+  }
 `;
 const Title = styled.div`
   font-family: "Pretendard-bold";
