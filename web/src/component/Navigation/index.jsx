@@ -9,14 +9,16 @@ import {
 import Navbar from "react-bootstrap/Navbar";
 export default function NavBar() {
   const [activeSection, setActiveSection] = useState("");
+  const [isNavOpen, setIsNavOpen] = useState(false); // 네비게이션 열림 상태 관리
   const handleScroll = (id) => {
     const section = document.getElementById(id);
     if (section) {
       window.scrollTo({
-        top: section.offsetTop - 70, // 네비게이션 높이만큼 위로 이동
+        top: section.offsetTop, // 네비게이션 높이만큼 위로 이동
         behavior: "smooth",
       });
     }
+    setIsNavOpen(false); // 스크롤 후 네비게이션 닫기
   };
   useEffect(() => {
     const sections = document.querySelectorAll("section");
@@ -42,10 +44,14 @@ export default function NavBar() {
         <Navbar.Brand href="#home" className="me-auto">
           <img src="/Logo.png" width="200px" height="auto" alt="Logo" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          onClick={() => setIsNavOpen(!isNavOpen)} // 토글 상태 변경
+        />
         <Navbar.Collapse
           id="basic-navbar-nav"
           style={{ justifyContent: "flex-end" }}
+          in={isNavOpen} // 네비게이션 열림 상태 제어
         >
           <StyledNav>
             <StyledNavLink
