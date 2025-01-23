@@ -34,7 +34,7 @@ export default function Curriculum() {
 }
 
 const StyledTabs = styled(Tabs)`
-  padding: 50px 0 20px 0;
+  padding: 50px 100px 20px 100px;
 
   @media (max-width: 768px) {
     padding: 20px 0 0 0; /* 모바일 환경에서 패딩 조정 */
@@ -42,17 +42,18 @@ const StyledTabs = styled(Tabs)`
 `;
 
 const CustomImg = styled.img`
-  width: 20%;
-  max-width: 250px;
+  width: 30%;
+  max-width: 150px;
   @media (max-width: 768px) {
-    width: 30%;
+    width: 25%;
   }
 `;
 const ImgGroup = styled.div`
   width: 100%;
   height: 200px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 30px;
   align-items: center;
   margin: 100px 0px;
   @media (max-width: 768px) {

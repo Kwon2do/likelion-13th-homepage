@@ -20,7 +20,7 @@ const Title = styled.div`
   margin-bottom: 5px;
   color: black;
   @media (min-width: 980px) {
-    font-size: 32px;
+    font-size: 24px;
   }
 `;
 
@@ -29,6 +29,6 @@ const Content = styled.div`
   line-height: 2;
   color: #888888;
   @media (min-width: 980px) {
-    font-size: 18px;
+    font-size: 17px;
   }
 `;
