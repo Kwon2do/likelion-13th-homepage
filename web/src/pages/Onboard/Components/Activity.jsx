@@ -29,13 +29,14 @@ const StyledCard = styled(Card)`
   width: 100%;
   height: 400px;
   border: none;
-
   @media (min-width: 768px) {
     height: 450px;
   }
-
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
   @media (min-width: 1200px) {
-    height: 550px;
+    height: 450px;
   }
 `;
 const StyledCardImg = styled(Card.Img)`

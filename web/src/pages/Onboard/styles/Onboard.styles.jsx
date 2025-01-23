@@ -148,7 +148,7 @@ export const ImageContainer = styled.div`
     border-radius: 1rem;
     object-fit: cover;
     width: 100%;
-    height: auto;
+    height: 260px;
     @media (max-width: 768px) {
       width: 100%;
     }
@@ -166,6 +166,9 @@ export const Title = styled.p`
   color: white;
   margin-bottom: 1.75rem;
   text-align: center;
+  @media (min-width: 992px) {
+    font-size: 32px !important;
+  }
 `;
 
 export const Description = styled.p`
@@ -175,7 +178,8 @@ export const Description = styled.p`
   text-align: center;
 
   @media (min-width: 768px) {
-    text-align: center;
+    text-align: left;
+    font-size: 17px !important;
   }
 
   transition: all 0.3s ease;
@@ -186,5 +190,44 @@ export const ResponsiveContainer = styled.div`
 
   @media (max-width: 768px) {
     height: auto;
+  }
+`;
+
+export const ScrollArrow = styled.div`
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 50px;
+  font-weight: bold;
+  animation: bounce 1.5s infinite;
+  cursor: pointer;
+  color: white;
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translate(-50%, 0);
+    }
+    50% {
+      transform: translate(-50%, -10px);
+    }
+  }
+`;
+
+export const FloatingTopButton = styled.div`
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff7710;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
   }
 `;

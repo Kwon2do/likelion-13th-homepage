@@ -61,8 +61,8 @@ export default function NavBar() {
               About Us
             </StyledNavLink>
             <StyledNavLink
-              onClick={() => handleScroll("curriculum")}
-              className={activeSection === "curriculum" ? "active" : ""}
+              onClick={() => handleScroll("Curriculum")}
+              className={activeSection === "Curriculum" ? "active" : ""}
             >
               Curriculum
             </StyledNavLink>
