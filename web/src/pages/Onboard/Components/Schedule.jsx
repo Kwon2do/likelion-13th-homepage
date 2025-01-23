@@ -82,7 +82,7 @@ const EventTitle = styled.h5`
   color: #333;
   margin-bottom: 8px;
   @media (max-width: 768px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 
@@ -106,7 +106,7 @@ const TimelineDot = styled.div`
 
 const MonthBadge = styled.div`
   position: absolute;
-  top: -10px;
+  top: -15px;
   right: -10px;
   background: #ff7710;
   color: white;
