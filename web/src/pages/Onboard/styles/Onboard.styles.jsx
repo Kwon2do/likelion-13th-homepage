@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
-import Carousel from "react-bootstrap/Carousel";
-
 export const PageContainer = styled.div`
   width: 100%;
   overflow-x: hidden;
@@ -124,9 +122,6 @@ export const StyledButton = styled.button`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(2px) !important;
   transform: scale(1.05) translateZ(0px);
-  &:hover {
-    transform: scale(1.1);
-  }
   width: 80%;
   @media (max-width: 991px) {
     display: flex;

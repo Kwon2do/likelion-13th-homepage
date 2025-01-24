@@ -32,6 +32,12 @@ const CenteredModalHeader = styled(Modal.Header)`
 
 const CenteredModalFooter = styled(Modal.Footer)`
   justify-content: center;
+  .custom-button {
+    :hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+  }
 `;
 
 export default function CustomModal({
@@ -45,9 +51,7 @@ export default function CustomModal({
   return (
     <Modal show={show} onHide={onHide} centered>
       <CenteredModalHeader closeButton>
-        <Modal.Title
-          style={{ color: primaryColor, fontFamily: "Pretendard-Bold" }}
-        >
+        <Modal.Title style={{ color: "black", fontFamily: "Pretendard-Bold" }}>
           {title}
         </Modal.Title>
       </CenteredModalHeader>
@@ -60,8 +64,13 @@ export default function CustomModal({
       <CenteredModalFooter>
         <Button
           variant="primary"
+          className="custom-button"
           onClick={onHide}
-          style={{ backgroundColor: primaryColor, borderColor: primaryColor }}
+          style={{
+            backgroundColor: primaryColor,
+            border: "none",
+            width: "35%",
+          }}
         >
           확인
         </Button>

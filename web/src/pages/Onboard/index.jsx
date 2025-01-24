@@ -1,9 +1,6 @@
-import { useState, useEffect } from "react";
-import CurriculumComponent from "./Components/Curriculum";
+import { useState } from "react";
 import "./styles/CustomUI.css";
-import { aboutUsData } from "../../constants/dummy";
 import SectionDivider from "./Components/Divider";
-import CustomModal from "../../component/Modals";
 import {
   BannerTitle,
   SubTitle,
@@ -19,6 +16,7 @@ import {
 import { useScroll } from "../../hooks/useScroll";
 import AllSectionComponent from "./Components/Section";
 import QuestionComponent from "./Components/Question";
+import { ApplyModal } from "../../component/Navigation";
 export default function Onboard() {
   const [showModal, setShowModal] = useState(false);
   const { scrollToTop, showScrollArrow, showTopButton } = useScroll();
@@ -70,18 +68,7 @@ export default function Onboard() {
           <FloatingTopButton onClick={scrollToTop}>TOP ↑</FloatingTopButton>
         )}
       </PageContainer>
-      <CustomModal
-        show={showModal}
-        onHide={() => setShowModal(false)}
-        title="안내"
-        imageUrl="/favicon.ico"
-        content={
-          <>
-            <h4>현재 지원 기간이 아닙니다</h4>
-            <p>다음 기수 모집 일정은 추후 공지될 예정입니다.</p>
-          </>
-        }
-      />
+      <ApplyModal setShowModal={setShowModal} showModal={showModal} />
     </>
   );
 }

@@ -85,21 +85,25 @@ export default function NavBar() {
           </Navbar.Collapse>
         </StyledContainer>
       </StyledNavbar>
-
-      <CustomModal
-        show={showModal}
-        onHide={() => setShowModal(false)}
-        title="안내"
-        imageUrl="/favicon.ico"
-        content={
-          <>
-            <div style={{ fontFamily: "Pretendard-Bold", fontSize: "20px" }}>
-              현재 지원 기간이 아닙니다
-            </div>
-            <p>모집 상세 일정은 홈페이지 하단 Q&A를 참고해주세요.</p>
-          </>
-        }
-      />
+      <ApplyModal setShowModal={setShowModal} showModal={showModal} />
     </>
   );
 }
+export const ApplyModal = ({ setShowModal, showModal }) => {
+  return (
+    <CustomModal
+      show={showModal}
+      onHide={() => setShowModal(false)}
+      title="LikeLion INU"
+      imageUrl="/favicon.ico"
+      content={
+        <>
+          <div style={{ fontFamily: "Pretendard-Bold", fontSize: "20px" }}>
+            지금은 지원 기간이 아니에요
+          </div>
+          <p>모집 일정은 홈페이지 하단 Q&A를 참고해주세요.</p>
+        </>
+      }
+    />
+  );
+};
