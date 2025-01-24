@@ -30,11 +30,11 @@
 - **이벤트 관리**: 다양한 멋사 관련 행사 및 이벤트를 관리하고 알리는 기능 추가
 
 ## 🛠 기술 스택
-- **Frontend**: React, Bootstrap, Emotion Styled, Framer Motion
-- **Backend**: Node.js, Express, mySQL
+- **Frontend**: React, JavaScript(추후 TypeScript 적용 예정), Bootstrap, Emotion Styled, Framer Motion
+- **Backend**: Nest.js, Express, mySQL
 - **Version Control**: Git, GitHub
 - **Build Tool**: Create React App
-- **Deployment**: Vercel (배포 서비스)
+- **Deployment**: Vercel, Docker
 
 ## 📄 파일 구조
 ```bash
