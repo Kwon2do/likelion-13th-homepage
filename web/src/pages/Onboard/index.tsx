@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./styles/CustomUI.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import SectionDivider from "./Components/Divider";
 import {
   BannerTitle,

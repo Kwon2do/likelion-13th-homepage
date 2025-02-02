@@ -5,7 +5,11 @@ export default function QuestionComponent() {
   return (
     <Container>
       {questionData.map((question) => (
-        <QuestionBox question={question.question} answer={question.answer} />
+        <QuestionBox
+          question={question.question}
+          answer={question.answer}
+          key={question.id}
+        />
       ))}
     </Container>
   );
