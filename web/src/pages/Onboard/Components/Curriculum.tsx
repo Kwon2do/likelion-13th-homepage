@@ -32,7 +32,6 @@ export default function Curriculum() {
     </StyledTabs>
   );
 }
-
 const StyledTabs = styled(Tabs)`
   padding: 50px 100px 20px 100px;
   @media (max-width: 768px) {

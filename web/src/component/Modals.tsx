@@ -1,4 +1,3 @@
-import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import styled from "@emotion/styled";
 
@@ -39,15 +38,22 @@ const CenteredModalFooter = styled(Modal.Footer)`
     }
   }
 `;
-
+interface ICustomModalProps {
+  show: boolean;
+  onHide: () => void;
+  title: string;
+  content: React.ReactNode;
+  imageUrl?: string;
+  primaryColor?: string;
+}
 export default function CustomModal({
   show,
   onHide,
   title,
   content,
-  imageUrl = "/api/placeholder/150/150",
+  imageUrl,
   primaryColor = "#ff7710",
-}) {
+}: ICustomModalProps) {
   return (
     <Modal show={show} onHide={onHide} centered>
       <CenteredModalHeader closeButton>

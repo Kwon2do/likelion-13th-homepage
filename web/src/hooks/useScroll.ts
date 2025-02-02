@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 
-export const useScroll = () => {
-  const [showScrollArrow, setShowScrollArrow] = useState(true);
-  const [showTopButton, setShowTopButton] = useState(false);
+interface IScrollReturn {
+  showScrollArrow: boolean;
+  showTopButton: boolean;
+  scrollToTop: () => void;
+}
+export const useScroll = (): IScrollReturn => {
+  const [showScrollArrow, setShowScrollArrow] = useState<boolean>(true);
+  const [showTopButton, setShowTopButton] = useState<boolean>(false);
 
-  const scrollToTop = () => {
+  const scrollToTop = (): void => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const handleScroll = () => {

@@ -1,9 +1,12 @@
 import { useState, useCallback } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import styled from "@emotion/styled";
-import React from "react";
-export const QuestionBox = ({ question, answer }) => {
-  const [open, setOpen] = useState(false);
+interface IQuestionBoxProps {
+  question: string;
+  answer: string;
+}
+export const QuestionBox = ({ question, answer }: IQuestionBoxProps) => {
+  const [open, setOpen] = useState<boolean>(false);
   const toggleOpen = useCallback(() => {
     setOpen((prevOpen) => !prevOpen);
   }, []);
@@ -40,7 +43,8 @@ const StyledContainer = styled.div`
 const StyledButton = styled.button`
   width: 60%;
   height: 60px;
-  background-color: ${({ isOpen }) => (isOpen ? "#ff7710" : "black")};
+  background-color: ${({ isOpen }: { isOpen: boolean }) =>
+    isOpen ? "#ff7710" : "black"};
   color: white;
   border: none;
   border-radius: 20px;
@@ -89,6 +93,7 @@ const AnswerPrefix = styled.span`
 
 const Icon = styled.span`
   font-size: 20px;
-  transform: ${({ isOpen }) => (isOpen ? "rotate(-90deg)" : "rotate(90deg)")};
+  transform: ${({ isOpen }: { isOpen: boolean }) =>
+    isOpen ? "rotate(-90deg)" : "rotate(90deg)"};
   transition: transform 0.3s ease;
 `;

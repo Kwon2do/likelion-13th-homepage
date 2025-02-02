@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "@emotion/styled";
 import { Container } from "react-bootstrap";
 import { scheduleEvents } from "../../../constants/dummy";
@@ -25,7 +24,6 @@ export default function ScheduleComponent() {
     </Container>
   );
 }
-
 const TimelineContainer = styled.div`
   position: relative;
   max-width: 800px;
@@ -45,7 +43,7 @@ const TimelineContainer = styled.div`
 
 const TimelineItem = styled.div`
   display: flex;
-  justify-content: ${({ index }) =>
+  justify-content: ${({ index }: { index: number }) =>
     index % 2 === 0 ? "flex-start" : "flex-end"};
   margin-bottom: 30px;
   position: relative;

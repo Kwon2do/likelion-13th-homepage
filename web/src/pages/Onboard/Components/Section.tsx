@@ -5,10 +5,10 @@ import ActivityComponent from "./Activity";
 import ScheduleComponent from "./Schedule";
 import CurriculumComponent from "./Curriculum";
 import { aboutUsData } from "../../../constants/dummy";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 export default function AllSectionComponent() {
   const [index, setIndex] = useState(0);
-  const handleSelect = (selectedIndex) => {
+  const handleSelect = (selectedIndex: number) => {
     setIndex(selectedIndex);
   };
   return (

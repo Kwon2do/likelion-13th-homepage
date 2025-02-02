@@ -10,11 +10,11 @@ import Navbar from "react-bootstrap/Navbar";
 import CustomModal from "../Modals";
 
 export default function NavBar() {
-  const [activeSection, setActiveSection] = useState("");
-  const [isNavOpen, setIsNavOpen] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
+  const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
-  const handleScroll = (id) => {
+  const handleScroll = (id: string): void => {
     const section = document.getElementById(id);
     if (section) {
       window.scrollTo({
@@ -89,7 +89,11 @@ export default function NavBar() {
     </>
   );
 }
-export const ApplyModal = ({ setShowModal, showModal }) => {
+interface ApplyModalProps {
+  showModal: boolean;
+  setShowModal: (show: boolean) => void;
+}
+export const ApplyModal = ({ setShowModal, showModal }: ApplyModalProps) => {
   return (
     <CustomModal
       show={showModal}

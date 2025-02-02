@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
-export default function CurriculumInfo({ title, content }) {
+interface ICurriculumProps {
+  title: string;
+  content: string;
+}
+export default function CurriculumInfo({ title, content }: ICurriculumProps) {
   return (
     <Wrapper>
       <Title>{title}</Title>
