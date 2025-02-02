@@ -31,9 +31,9 @@
 
 ## 🛠 기술 스택
 - **Frontend**: React, JavaScript(추후 TypeScript 적용 예정), Bootstrap, Emotion Styled, Framer Motion
-- **Backend**: Nest.js, Express, mySQL
+- **Backend**: Nest.js, mySQL, Redis
 - **Version Control**: Git, GitHub
-- **Build Tool**: Create React App
+- **Build Tool**: Vite
 - **Deployment**: Vercel, Docker
 
 ## 📄 파일 구조
