@@ -5,6 +5,10 @@ import { scheduleEvents } from "../../../constants/dummy";
 export default function ScheduleComponent() {
   return (
     <Container>
+      <h2>연간 일정</h2>
+      <h2 style={{ color: "darkgray" }}>
+        일년 동안 체계적으로 역량을 쌓을 수 있는 커리큘럼이 준비되어 있어요.
+      </h2>
       <TimelineContainer>
         {scheduleEvents.map((item, index) => (
           <TimelineItem key={item.month} index={index}>

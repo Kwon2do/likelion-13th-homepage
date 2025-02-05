@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 export const PageContainer = styled.div`
   width: 100%;
   overflow-x: hidden;
+  background-color: black;
 `;
 
 export const Wrapper = styled.section`
@@ -70,9 +71,18 @@ export const Button = styled(motion.button)`
 export const Section = styled.section`
   width: 100%;
   min-height: 80vh;
-  padding: 150px 0px 20px 0px;
+  padding: 150px 0px 0px 0px;
   transition: all 0.3s ease;
-
+  h1 {
+    font-family: "Pretendard-Bold";
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: rgb(255, 119, 16);
+    @media (max-width: 768px) {
+      font-size: clamp(18px, 32px, 32px) !important;
+    }
+  }
   h2 {
     font-family: "Pretendard-Bold";
     font-size: 32px;
@@ -83,12 +93,10 @@ export const Section = styled.section`
       font-size: 24px;
     }
   }
-
   p {
     font-size: 20px;
     line-height: 1.6;
     margin-bottom: 20px;
-
     @media (max-width: 768px) {
       font-size: 18px;
     }
@@ -118,7 +126,7 @@ export const StyledButton = styled.button`
   padding: 15px 30px;
   border: none;
   transition: all 0.2s ease;
-  background-color: #333333 !important;
+  background-color: transparent !important;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(2px) !important;
   transform: scale(1.05) translateZ(0px);
@@ -195,11 +203,12 @@ export const ScrollArrow = styled.div`
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 50px;
+  font-size: 72px;
   font-weight: bold;
   animation: bounce 1.5s infinite;
   cursor: pointer;
   color: white;
+  z-index: 1;
   @keyframes bounce {
     0%,
     100% {
@@ -212,7 +221,7 @@ export const ScrollArrow = styled.div`
 `;
 
 export const FloatingTopButton = styled.div`
-  position: fixed;
+  position: fixed; /* 뷰포트 내에서 고정 */
   bottom: 20px;
   right: 20px;
   background-color: #ff7710;
@@ -224,7 +233,21 @@ export const FloatingTopButton = styled.div`
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: opacity 0.3s ease, transform 0.3s ease;
+  animation: float 3s ease-in-out infinite; /* 둥둥 떠다니는 애니메이션 추가 */
+
   &:hover {
     transform: scale(1.1);
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 `;

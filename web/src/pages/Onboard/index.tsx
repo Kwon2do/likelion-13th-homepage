@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./styles/CustomUI.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SectionDivider from "./Components/Divider";
@@ -18,13 +18,37 @@ import { useScroll } from "../../hooks/useScroll";
 import AllSectionComponent from "./Components/Section";
 import QuestionComponent from "./Components/Question";
 import { ApplyModal } from "../../component/Navigation";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 export default function Onboard() {
   const [showModal, setShowModal] = useState(false);
   const { scrollToTop, showScrollArrow, showTopButton } = useScroll();
+  const wrapperRef = useRef(null);
+  const sectionRef = useRef(null);
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: wrapperRef.current, // Wrapper 기준
+          start: "top top",
+          end: "bottom+=50vh",
+          scrub: true,
+        },
+      })
+      .to(wrapperRef.current, { opacity: 0 })
+      .fromTo(
+        sectionRef.current,
+        { opacity: 0 },
+        { opacity: 1 },
+        "<" // 이전 애니메이션과 동시에 시작
+      );
+  }, []);
+
   return (
     <>
       <PageContainer>
-        <Wrapper>
+        <Wrapper ref={wrapperRef}>
           <Overlay />
           <Content>
             <BannerTitle
@@ -46,7 +70,7 @@ export default function Onboard() {
             <Button
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 2, duration: 0.8, ease: "easeInOut" }}
+              transition={{ delay: 2, duation: 0.8, ease: "easeInOut" }}
               onClick={() => setShowModal(true)}
             >
               13기 아기사자 지원하기
@@ -62,7 +86,12 @@ export default function Onboard() {
             </ScrollArrow>
           )}
         </Wrapper>
-        <AllSectionComponent />
+
+        {/* AllSectionComponent에 ref 적용을 위해 감싸는 컨테이너 */}
+        <div ref={sectionRef}>
+          <AllSectionComponent />
+        </div>
+
         <SectionDivider />
         <QuestionComponent />
         {showTopButton && (

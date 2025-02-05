@@ -5,33 +5,41 @@ import InfoTextBox from "../../../component/Curriculum-Text-Box";
 import { curriculumData } from "../../../constants/dummy";
 export default function Curriculum() {
   return (
-    <StyledTabs
-      variant="pills"
-      defaultActiveKey="기획/디자인"
-      id="fill-tab-example"
-      className="mb-3 custom-tabs"
-      fill
-    >
-      {curriculumData.map((curriculum) => (
-        <Tab
-          key={curriculum.eventKey}
-          eventKey={curriculum.eventKey}
-          title={curriculum.title}
-          className="custom-tab"
-        >
-          <ImgGroup>
-            {curriculum.images.map((src, idx) => (
-              <CustomImg key={idx} src={src} />
+    <>
+      <h2>어떤 것들을 배울 수 있을까요?</h2>
+      <StyledTabs
+        variant="pills"
+        defaultActiveKey="COMMON"
+        id="fill-tab-example"
+        className="mb-3 custom-tabs"
+        fill
+      >
+        {curriculumData.map((curriculum) => (
+          <Tab
+            key={curriculum.eventKey}
+            eventKey={curriculum.eventKey}
+            title={curriculum.title}
+            className="custom-tab"
+          >
+            <ImgGroup>
+              {curriculum.images.map((src, idx) => (
+                <CustomImg key={idx} src={src} />
+              ))}
+            </ImgGroup>
+            {curriculum.info.map((info, idx) => (
+              <InfoTextBox
+                key={idx}
+                title={info.title}
+                content={info.content}
+              />
             ))}
-          </ImgGroup>
-          {curriculum.info.map((info, idx) => (
-            <InfoTextBox key={idx} title={info.title} content={info.content} />
-          ))}
-        </Tab>
-      ))}
-    </StyledTabs>
+          </Tab>
+        ))}
+      </StyledTabs>
+    </>
   );
 }
+
 const StyledTabs = styled(Tabs)`
   padding: 50px 100px 20px 100px;
   @media (max-width: 768px) {
@@ -45,6 +53,9 @@ const CustomImg = styled.img`
   @media (max-width: 768px) {
     width: 18%;
   }
+  padding: 10px 10px;
+  border-radius: 10px;
+  background-color: white;
 `;
 const ImgGroup = styled.div`
   width: 100%;

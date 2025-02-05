@@ -61,25 +61,25 @@ export default function NavBar() {
           >
             <StyledNav>
               <StyledNavLink
-                onClick={() => handleScroll("AboutUs")}
-                className={activeSection === "AboutUs" ? "active" : ""}
+                onClick={() => handleScroll("aboutus")}
+                className={activeSection === "aboutus" ? "active" : ""}
               >
                 About Us
               </StyledNavLink>
               <StyledNavLink
-                onClick={() => handleScroll("Curriculum")}
-                className={activeSection === "Curriculum" ? "active" : ""}
+                onClick={() => handleScroll("curriculum")}
+                className={activeSection === "curriculum" ? "active" : ""}
               >
                 Curriculum
               </StyledNavLink>
               <StyledNavLink
-                onClick={() => handleScroll("Activity")}
-                className={activeSection === "Activity" ? "active" : ""}
+                onClick={() => handleScroll("activity")}
+                className={activeSection === "activity" ? "active" : ""}
               >
                 Activity
               </StyledNavLink>
               <ApplyButton onClick={() => setShowModal(true)}>
-                지원하기
+                Apply
               </ApplyButton>
             </StyledNav>
           </Navbar.Collapse>

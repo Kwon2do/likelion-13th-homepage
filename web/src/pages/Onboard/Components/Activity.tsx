@@ -7,6 +7,7 @@ import { activityData } from "../../../constants/dummy";
 export default function ResponsiveCards() {
   return (
     <Container>
+      <h2>다양한 활동과 배움을 한곳에서!</h2>
       <Row>
         {activityData.map((card) => (
           <Col key={card.id} xs={12} md={6} lg={6}>

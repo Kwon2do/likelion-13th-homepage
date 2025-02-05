@@ -1,7 +1,23 @@
 export const curriculumData = [
   {
-    eventKey: "기획/디자인",
-    title: "기획/디자인",
+    eventKey: "COMMON",
+    title: "COMMON",
+    images: [
+      "/curriculum-img/common/github.svg",
+      "/curriculum-img/common/figma.svg",
+      "/curriculum-img/common/postman.svg",
+    ],
+    info: [
+      {
+        title: "공통 세션은 무엇인가요?",
+        content:
+          "멋쟁이사자처럼 인천대학교는 2주에 한 번씩 모든 팀원이 협업의 중요성과 프로젝트의 전체적인 방향을 이해할 수 있는 시간인 정기 공통 세션을 진행합니다. <br/> 공통적으로 협업에서 꼭 필요한 <strong>Postman, GitHub, Slack</strong> 같은 협업 도구들을 학습하거나, 각 파트의 진행 상황을 공유하며 협업 중 발생한 문제와 해결 과정을 논의합니다.",
+      },
+    ],
+  },
+  {
+    eventKey: "PM/DESIGN",
+    title: "PM/DESIGN",
     images: ["/curriculum-img/figma.png", "/curriculum-img/notion.png"],
     info: [
       {
@@ -22,8 +38,8 @@ export const curriculumData = [
     ],
   },
   {
-    eventKey: "프론트엔드",
-    title: "프론트엔드",
+    eventKey: "FRONT-END",
+    title: "FRONT-END",
     images: [
       "/curriculum-img/w3c.png",
       "/curriculum-img/react.png",
@@ -54,8 +70,8 @@ export const curriculumData = [
     ],
   },
   {
-    eventKey: "백엔드",
-    title: "백엔드",
+    eventKey: "BACK-END",
+    title: "BACK-END",
     images: [
       "/curriculum-img/mySQL.png",
       "/curriculum-img/nodejs.png",
@@ -82,22 +98,6 @@ export const curriculumData = [
         title: "4️⃣ 클라우드 배포 및 CI/CD 구축",
         content:
           "AWS EC2와 같은 클라우드 서비스를 활용하여 서버를 직접 구성하고 운영하는 방법을 익힙니다. 또한, GitHub Actions, Jenkins와 같은 CI/CD 도구를 활용해 자동화된 배포 환경을 구축하며, 효율적인 개발-배포 워크플로우를 경험합니다.",
-      },
-    ],
-  },
-  {
-    eventKey: "공통 세션",
-    title: "공통 세션",
-    images: [
-      "/curriculum-img/postman.png",
-      "/curriculum-img/github.png",
-      "/curriculum-img/slack.png",
-    ],
-    info: [
-      {
-        title: "공통 세션은 무엇인가요?",
-        content:
-          "멋쟁이사자처럼 인천대학교는 2주에 한 번씩 모든 팀원이 협업의 중요성과 프로젝트의 전체적인 방향을 이해할 수 있는 시간인 정기 공통 세션을 진행합니다. <br/> 공통적으로 협업에서 꼭 필요한 <strong>Postman, GitHub, Slack</strong> 같은 협업 도구들을 학습하거나, 각 파트의 진행 상황을 공유하며 협업 중 발생한 문제와 해결 과정을 논의합니다.",
       },
     ],
   },
