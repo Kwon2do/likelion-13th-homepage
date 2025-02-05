@@ -1,6 +1,3 @@
-
-![Logo](https://github.com/user-attachments/assets/9b30eb12-29ed-4df4-a2e2-a7d61b9d6446)
-
 # 멋쟁이사자처럼 인천대학교 홈페이지
 ## 🚀 프로젝트 소개
 **멋쟁이사자처럼 인천대학교**의 공식 홈페이지입니다.   
