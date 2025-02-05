@@ -15,16 +15,11 @@
 > v1
 > 정보 제공 페이지, 질문 및 답변 섹션, 커리큘럼 안내, 모집 일정 안내
 
-### 주요 기능
-- **홈페이지 정보 제공**: 멋사 인천대학교의 소개 및 연락처 정보 제공
-- **SNS 연동**: 인스타그램, 디스코드, 이메일 등의 연락처 아이콘을 제공하여 빠른 소통 가능
-- **반응형 웹**: 모바일 기기에서도 문제없이 사용 가능하도록 디자인됨
-
 ### 향후 기능 확장 예정
-- **지원서 접수 시스템**: 새로운 멤버들의 지원서를 받을 수 있는 시스템 도입 예정
-- **커뮤니티**: 부원들간에 스터디를 진행하면서 서로 지식을 공유할 수 있는 커뮤니티 게시판 추가 예정
-- **상벌점제 관리**: 상벌점 시스템을 관리하고, 점수 기반의 리워드 및 벌점 처리를 위한 기능 추가 예정
-- **이벤트 관리**: 다양한 멋사 관련 행사 및 이벤트를 관리하고 알리는 기능 추가
+- **지원서 접수 시스템**: 새로운 부원들의 지원서를 받을 수 있는 시스템 도입 예정
+- **개인별 회고록 기능**: 부원들간에 스터디를 진행하면서 서로 지식을 공유할 수 있는 회고록 게시판 추가 예정 (회고록)
+- **상벌점제 관리**: 상벌점 시스템을 관리하고, 점수 기반의 리워드 및 벌점 처리를 위한 기능 추가 예정 (스터디 관리용)
+- **커뮤니티**: 다양한 멋사 관련 행사 및 이벤트를 관리, 부원들 간에 Q&A 기능 추가
 
 ## 🛠 기술 스택
 - **Frontend**: React, JavaScript(추후 TypeScript 적용 예정), Bootstrap, Emotion Styled, Framer Motion
@@ -33,75 +28,5 @@
 - **Build Tool**: Vite
 - **Deployment**: Vercel, Docker
 
-## 📄 파일 구조
-```bash
-web
-├── .DS_Store
-├── .gitignore
-├── README.md
-├── node_modules
-├── package-lock.json
-├── package.json
-├── public
-│   ├── Logo.png
-│   ├── aboutUs-img
-│   │   └── ...
-│   ├── activity-img
-│   │   └── ...
-│   ├── curriculum-img
-│   │   └── ...
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── manifest.json
-│   ├── onboard.jpg
-│   └── robots.txt
-└── src
-    ├── App.css
-    ├── App.js
-    ├── App.test.js
-    ├── component
-    │   ├── AboutUs
-    │   │   └── Box-Container.jsx
-    │   ├── Curriculum-Text-Box.jsx
-    │   ├── Footer.jsx
-    │   ├── Modals.jsx
-    │   ├── Navigation
-    │   │   ├── index.jsx
-    │   │   └── styles.js
-    │   └── Question-Box.jsx
-    ├── constants
-    │   └── dummy.js
-    ├── hooks
-    │   └── useScroll.js
-    ├── index.css
-    ├── index.js
-    ├── logo.svg
-    ├── pages
-    │   ├── Onboard
-    │   │   ├── Components
-    │   │   │   ├── Activity.jsx
-    │   │   │   ├── Curriculum.jsx
-    │   │   │   ├── Divider.jsx
-    │   │   │   ├── Question.jsx
-    │   │   │   ├── Schedule.jsx
-    │   │   │   └── Section.jsx
-    │   │   ├── index.jsx
-    │   │   └── styles
-    │   │       ├── CustomUI.css
-    │   │       └── Onboard.styles.jsx
-    │   └── ...
-    ├── reportWebVitals.js
-    └── setupTests.js
-```
-## 🧑‍🤝‍🧑 기여 방법
-프로젝트에 기여하고 싶으신 분은 아래와 같은 방법으로 참여 가능합니다:
-
-이슈 생성: Issues 페이지에 문제를 제기하거나 개선 사항을 작성해 주세요.
-풀 리퀘스트(PR): 기능 추가나 버그 수정 등의 기여를 원하시면, fork 후 풀 리퀘스트(PR)를 보내 주세요.
-기여 시 주의사항
-코드 스타일에 맞춰 작성해 주세요.
-PR 전에 반드시 해당 기능에 대한 이슈를 생성해 주세요.
-커밋 메시지는 간결하고 명확하게 작성해 주세요.
-
-## 🎉 1차 배포 완료!
-이 프로젝트는 2025년 1월 23일 기준으로 1차 배포가 완료되었습니다. 앞으로 더 많은 기능과 업데이트가 예정되어 있습니다. 많은 관심 부탁드립니다!
+## ver1.0 - 2025.01.24 배포
+## ver2.0(Dark Mode UI) - 2025.02.06 배포
