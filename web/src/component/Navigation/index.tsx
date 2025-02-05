@@ -48,7 +48,7 @@ export default function NavBar() {
       <StyledNavbar expand="lg" data-bs-theme="light">
         <StyledContainer>
           <Navbar.Brand href="#home" className="me-auto">
-            <img src="/Logo.png" width="200px" height="auto" alt="Logo" />
+            <img src="/Logo.svg" width="100px" height="auto" alt="Logo" />
           </Navbar.Brand>
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
