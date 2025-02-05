@@ -12,7 +12,7 @@ export default function CurriculumInfo({ title, content }: ICurriculumProps) {
   );
 }
 const Wrapper = styled.div`
-  padding: 30px 100px 10px 100px;
+  padding: 30px 100px 10px 200px;
   text-align: left;
   @media (max-width: 980px) {
     padding: 20px;

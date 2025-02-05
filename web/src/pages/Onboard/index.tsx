@@ -16,7 +16,6 @@ import {
 } from "./styles/Onboard.styles";
 import { useScroll } from "../../hooks/useScroll";
 import AllSectionComponent from "./Components/Section";
-import QuestionComponent from "./Components/Question";
 import { ApplyModal } from "../../component/Navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -30,19 +29,14 @@ export default function Onboard() {
     gsap
       .timeline({
         scrollTrigger: {
-          trigger: wrapperRef.current, // Wrapper 기준
+          trigger: wrapperRef.current,
           start: "top top",
           end: "bottom+=50vh",
           scrub: true,
         },
       })
       .to(wrapperRef.current, { opacity: 0 })
-      .fromTo(
-        sectionRef.current,
-        { opacity: 0 },
-        { opacity: 1 },
-        "<" // 이전 애니메이션과 동시에 시작
-      );
+      .fromTo(sectionRef.current, { opacity: 0 }, { opacity: 1 }, "<");
   }, []);
 
   return (
@@ -86,14 +80,9 @@ export default function Onboard() {
             </ScrollArrow>
           )}
         </Wrapper>
-
-        {/* AllSectionComponent에 ref 적용을 위해 감싸는 컨테이너 */}
         <div ref={sectionRef}>
           <AllSectionComponent />
         </div>
-
-        <SectionDivider />
-        <QuestionComponent />
         {showTopButton && (
           <FloatingTopButton onClick={scrollToTop}>TOP ↑</FloatingTopButton>
         )}

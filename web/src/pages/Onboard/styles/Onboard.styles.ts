@@ -221,7 +221,7 @@ export const ScrollArrow = styled.div`
 `;
 
 export const FloatingTopButton = styled.div`
-  position: fixed; /* 뷰포트 내에서 고정 */
+  position: fixed;
   bottom: 20px;
   right: 20px;
   background-color: #ff7710;
@@ -233,7 +233,7 @@ export const FloatingTopButton = styled.div`
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  animation: float 3s ease-in-out infinite; /* 둥둥 떠다니는 애니메이션 추가 */
+  animation: float 3s ease-in-out infinite;
 
   &:hover {
     transform: scale(1.1);

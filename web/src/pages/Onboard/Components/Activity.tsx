@@ -1,9 +1,18 @@
+import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import styled from "@emotion/styled";
 import { activityData } from "../../../constants/dummy";
+
+interface ICard {
+  id: number;
+  imgSrc: string;
+  title: string;
+  text: string;
+}
+
 export default function ResponsiveCards() {
   return (
     <Container>
@@ -11,64 +20,101 @@ export default function ResponsiveCards() {
       <Row>
         {activityData.map((card) => (
           <Col key={card.id} xs={12} md={6} lg={6}>
-            <StyledCard>
-              <StyledCardImg variant="top" src={card.imgSrc} />
-              <StyledCardBody>
-                <CardTitle>{card.title}</CardTitle>
-                <CardText>{card.text}</CardText>
-              </StyledCardBody>
-            </StyledCard>
+            <BlurCard card={card} />
           </Col>
         ))}
       </Row>
     </Container>
   );
 }
-const StyledCard = styled(Card)`
-  width: 100%;
-  height: 400px;
-  border: none;
-  @media (min-width: 768px) {
-    height: 450px;
-  }
-  @media (max-width: 768px) {
-    padding: 20px;
-  }
-  @media (min-width: 1200px) {
-    height: 450px;
-  }
-`;
-const StyledCardImg = styled(Card.Img)`
-  height: 60%;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25); /* 그림자 효과 */
-  @media (max-width: 767px) {
-    height: 70%;
-  }
-`;
 
-const StyledCardBody = styled(Card.Body)`
+const BlurCard = ({ card }: { card: ICard }) => {
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+
+  const handleClick = (): void => {
+    setIsClicked((prev) => !prev);
+  };
+
+  return (
+    <CardWrapper>
+      <StyledCard onClick={handleClick}>
+        <StyledCardImg src={card.imgSrc} isClicked={isClicked} />
+        <Overlay isClicked={isClicked}>
+          <OverlayTitle>{card.title}</OverlayTitle>
+          <CardText>{card.text}</CardText>
+        </Overlay>
+      </StyledCard>
+      <CardTitle>{card.title}</CardTitle>
+    </CardWrapper>
+  );
+};
+
+const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-grow: 1;
+  border: none;
+  gap: 10px;
+  margin-bottom: 40px;
+`;
+
+const StyledCard = styled(Card)`
+  width: 100%;
+  max-width: 500px;
   height: auto;
-`;
-
-const CardTitle = styled(Card.Title)`
-  font-size: 20px !important;
-  font-family: "Pretendard-Bold";
-  text-align: center;
-`;
-
-const CardText = styled(Card.Text)`
-  font-size: 15px !important;
-  font-family: "Pretendard-Regular";
-  text-align: left;
-  color: #333333;
-
-  @media (max-width: 767px) {
-    font-size: 12px !important;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.03);
   }
+`;
+
+const StyledCardImg = styled(Card.Img)<{ isClicked: boolean }>`
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: filter 0.3s ease-in-out;
+  filter: ${(props) => (props.isClicked ? "blur(5px)" : "none")};
+`;
+const Overlay = styled.div<{ isClicked: boolean }>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  opacity: ${(props) => (props.isClicked ? 1 : 0)};
+  visibility: ${(props) => (props.isClicked ? "visible" : "hidden")};
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  border-radius: 15px;
+`;
+
+const OverlayTitle = styled.h3`
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 12px;
+`;
+
+const CardText = styled.p`
+  font-size: 16px !important;
+  text-align: left;
+  padding: 0 40px;
+`;
+
+const CardTitle = styled.h3`
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+  color: white;
 `;
