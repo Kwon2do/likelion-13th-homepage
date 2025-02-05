@@ -61,7 +61,7 @@ const AllSectionComponent: React.FC = () => {
             scrollTrigger: {
               trigger: section,
               start: "top 80%",
-              end: "bottom 30%", // 애니메이션이 끝나는 시점을 추가
+              end: "bottom 100%", // 애니메이션이 끝나는 시점을 추가
               scrub: true, // 스크롤 내릴 때뿐만 아니라 올릴 때도 동일하게 적용됨
               // markers: true,   // 디버깅용
             },

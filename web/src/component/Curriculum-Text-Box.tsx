@@ -12,7 +12,7 @@ export default function CurriculumInfo({ title, content }: ICurriculumProps) {
   );
 }
 const Wrapper = styled.div`
-  padding: 20px 150px;
+  padding: 30px 100px 10px 100px;
   text-align: left;
   @media (max-width: 980px) {
     padding: 20px;
@@ -22,7 +22,7 @@ const Title = styled.div`
   font-family: "Pretendard-bold";
   font-size: 20px;
   margin-bottom: 5px;
-  color: black;
+  color: white;
   @media (min-width: 980px) {
     font-size: 24px;
   }

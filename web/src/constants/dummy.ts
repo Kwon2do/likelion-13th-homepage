@@ -9,31 +9,48 @@ export const curriculumData = [
     ],
     info: [
       {
-        title: "공통 세션은 무엇인가요?",
-        content:
-          "멋쟁이사자처럼 인천대학교는 2주에 한 번씩 모든 팀원이 협업의 중요성과 프로젝트의 전체적인 방향을 이해할 수 있는 시간인 정기 공통 세션을 진행합니다. <br/> 공통적으로 협업에서 꼭 필요한 <strong>Postman, GitHub, Slack</strong> 같은 협업 도구들을 학습하거나, 각 파트의 진행 상황을 공유하며 협업 중 발생한 문제와 해결 과정을 논의합니다.",
+        title: "GITHUB",
+        content: "효율적인 코드 관리와 협업의 필수 도구",
+      },
+      {
+        title: "FIGMA",
+        content: "디자이너와 개발자를 연결하는 실시간 협업 도구",
+      },
+      {
+        title: "POSTMAN",
+        content: "원활한 API 테스트와 개발자 간의 소통 도구",
       },
     ],
   },
   {
-    eventKey: "PM/DESIGN",
-    title: "PM/DESIGN",
-    images: ["/curriculum-img/figma.png", "/curriculum-img/notion.png"],
+    eventKey: "PM | DESIGN",
+    title: "PM | DESIGN",
+    images: [
+      "/curriculum-img/pm-design/html-css.svg",
+      "/curriculum-img/common/figma.svg",
+      "/curriculum-img/pm-design/doc.svg",
+      "/curriculum-img/pm-design/userdata.svg",
+    ],
     info: [
       {
-        title: "1️⃣ 협업을 위한 필수 툴 학습",
+        title: "HTML | CSS",
         content:
-          "현재 IT 업계에서 가장 주목받는 <strong>Figma</strong>와 <strong>Notion</strong>을 활용하여 기획 및 협업 역량을 키울 수 있어요! <br/> 실시간 협업과 디자인 시스템 구축을 통해 효율적인 팀워크를 경험합니다.",
+          "HTML & CSS 기초 학습으로 기본적인 웹페이지 구조를 이해하고 기획과 디자인에 활용해요!",
       },
       {
-        title: "2️⃣ 아이디어 시각화",
+        title: "FIGMA",
         content:
-          "서비스의 기본 구조를 설계하는 <strong>와이어프레임 구축</strong> 방법을 배우고, 사용자 흐름을 한눈에 파악할 수 있는 <strong>스토리보드 작성</strong>을 통해 기획 단계를 구체화합니다.",
+          "Figma 기초 및 심화 학습을 통해 실시간 협업이 가능한 디자인 도구로 UI/UX를 설계해요!",
       },
       {
-        title: "3️⃣ 문제 해결 능력 및 리더십 역량 증진",
+        title: "CONCEPT DESIGN",
         content:
-          "멋쟁이사자처럼 동아리는 아이디어톤, 해커톤 등 <strong>다양한 협업 프로젝트</strong>를 통해 실질적인 경험을 쌓을 수 있는 기회를 제공합니다. <br/> 이러한 활동은 팀 빌딩부터 문제 해결까지의 전 과정을 경험하며, <strong>협업 능력을 효과적으로 강화</strong>할 수 있습니다.",
+          "프로토타입 및 와이어프레임 제작으로사용자 흐름을 고려한 직관적인 화면을 기획해요!",
+      },
+      {
+        title: "ANALYSIS",
+        content:
+          "사용자 데이터 분석 방법을 익혀 Google Forms, Google Analytics로 사용자 행동과 피드백을 분석 후 서비스에 반영해요!",
       },
     ],
   },
@@ -41,31 +58,31 @@ export const curriculumData = [
     eventKey: "FRONT-END",
     title: "FRONT-END",
     images: [
-      "/curriculum-img/w3c.png",
-      "/curriculum-img/react.png",
-      "/curriculum-img/redux.png",
-      "/curriculum-img/typescript.png",
+      "/curriculum-img/front-end/w3c.svg",
+      "/curriculum-img/front-end/react.svg",
+      "/curriculum-img/front-end/recoil.svg",
+      "/curriculum-img/front-end/typescript.svg",
     ],
     info: [
       {
-        title: "1️⃣ 웹 개발의 핵심인 W3C 기술",
+        title: "HTML | CSS | JS",
         content:
-          "프론트엔드 개발의 기초인 <strong>HTML, CSS, JavaScript</strong>를 학습하며, 웹 페이지의 구조와 스타일을 설계하고, 동적인 상호작용을 구현합니다. <br/>또한, 더 안전하고 유지보수가 쉬운 코드를 작성하기 위해 <strong>TypeScript</strong>를 함께 학습하여 정적 타입을 활용한 안정적인 개발 방법을 익힙니다. ",
+          "HTML, CSS, JavaScript를 활용해  프론트엔드 개발의 기초를 다지고, 반응형 디자인, 인터랙티브 UI 구현까지 학습해요!",
       },
       {
-        title: "2️⃣ 트렌디한 웹페이지를 위한 반응형 UI/UX",
+        title: "REACT",
         content:
-          "<strong>반응형 디자인</strong>은 현대 웹 개발의 필수 기술입니다. 다양한 디바이스(PC, 태블릿, 모바일)에 최적화된 사용자 경험을 제공하기 위해 미디어 쿼리와 플렉스박스, 그리드 레이아웃 같은 CSS 기술을 익힙니다.",
+          "React의 동작 원리와 JSX 문법을 익히고,  효율적이며 재사용 가능한 컴포넌트 기반으로 동적 웹페이지를 제작하는 법을 학습해요!",
       },
       {
-        title: "3️⃣ 전역 상태 관리 기술 학습",
+        title: "RECOIL",
         content:
-          "복잡한 웹 애플리케이션에서 상태를 효율적으로 관리하기 위해 <strong>Redux</strong>를 활용한 전역 상태 관리 기술을 학습합니다. <br/>컴포넌트 간 데이터 전달 문제를 해결하고, 대규모 프로젝트에서의 데이터 흐름을 구조적으로 관리할 수 있는 방법을 배웁니다. 이를 통해 개발 생산성을 높이고, 유지보수성을 강화할 수 있는 역량을 키웁니다.",
+          "React 애플리케이션에서 여러 컴포넌트가 공유하는 전역 상태를 효율적으로 관리할 때 유용한 라이브러리인 Recoil을 함께 학습해요! ",
       },
       {
-        title: "4️⃣ API 통신 및 실제 배포 경험",
+        title: "TYPESCRIPT",
         content:
-          "RESTful API를 활용하여 데이터를 요청하고, 이를 사용자에게 시각적으로 보여주는 기술을 학습합니다. <br/> AWS, Vercel과 같은 배포 도구를 사용해 실제 웹 애플리케이션을 배포하며, 자신의 아이디어를 실현하는 경험을 쌓습니다.",
+          "TypeScript를 통해 안전한 상태 관리와 예측 가능한 코드 작성 방법을 학습하며 안정성과 가독성을 극대화하세요!",
       },
     ],
   },
@@ -73,31 +90,30 @@ export const curriculumData = [
     eventKey: "BACK-END",
     title: "BACK-END",
     images: [
-      "/curriculum-img/mySQL.png",
-      "/curriculum-img/nodejs.png",
-      "/curriculum-img/spring.png",
-      "/curriculum-img/aws.png",
+      "/curriculum-img/back-end/language.svg",
+      "/curriculum-img/back-end/framework.svg",
+      "/curriculum-img/back-end/db.svg",
+      "/curriculum-img/back-end/docker.svg",
     ],
     info: [
       {
-        title: "1️⃣ 데이터베이스 설계 및 관리",
+        title: "JAVASCRIPT | JAVA",
         content:
-          "백엔드의 기본이 되는 데이터베이스 설계 및 관리를 학습합니다. <strong>MySQL</strong>을 활용하여 데이터를 효과적으로 저장하고 관리하는 방법, 데이터 모델링, 관계형 데이터베이스의 핵심 개념을 이해하며, SQL 쿼리를 통해 데이터를 다루는 기술을 익힙니다.",
+          "JavaScript의 비동기 처리와 Java의 객체지향 개념을 익혀 백엔드 개발의 기초를 다지고, 원하는 언어를 선택해 서버 구축까지 학습합니다.",
       },
       {
-        title: "2️⃣ 희망에 따라 선택 가능한 프레임워크 학습",
-        content:
-          "멋쟁이사자처럼 인천대학교에서는 <strong>Node.js</strong>와 <strong>Spring Boot</strong> 중 본인이 선호하는 프레임워크를 선택하여 학습할 수 있습니다. 각각의 특성과 장단점을 이해하고, 자신에게 맞는 도구를 활용해 백엔드 시스템을 설계합니다.",
+        title: "NEST JS | SPRING",
+        content: "디자이너와 개발자를 연결하는 실시간 협업 도구",
       },
       {
-        title: "3️⃣ 실무 중심의 프로젝트 및 협업 경험",
+        title: "DATABASE",
         content:
-          "백엔드와 프론트엔드 간 원활한 데이터 통신을 위해 <strong>RESTful API</strong>를 설계하고 구현하는 기술을 학습합니다. 협업을 위해 <strong>Notion</strong>과 <strong>Swagger</strong>를 사용하여 API 명세서를 작성하고, 이를 기반으로 데이터 연동 및 테스트를 진행합니다.",
+          "관계형 데이터베이스 MySQL과  비정형 데이터베이스 MongoDB를 활용하여 다양한 데이터 저장 방식과 활용법을 익힙니다.",
       },
       {
-        title: "4️⃣ 클라우드 배포 및 CI/CD 구축",
+        title: "DOCKER",
         content:
-          "AWS EC2와 같은 클라우드 서비스를 활용하여 서버를 직접 구성하고 운영하는 방법을 익힙니다. 또한, GitHub Actions, Jenkins와 같은 CI/CD 도구를 활용해 자동화된 배포 환경을 구축하며, 효율적인 개발-배포 워크플로우를 경험합니다.",
+          "Docker와 Docker Compose를 활용해 개발 환경을 컨테이너화하고, 배포 자동화를 학습하여 효율적인 배포 운영이 가능하도록 합니다.",
       },
     ],
   },
