@@ -97,13 +97,14 @@ export const curriculumData = [
     ],
     info: [
       {
-        title: "JAVASCRIPT | JAVA",
+        title: "JAVA",
         content:
-          "JavaScript의 비동기 처리와 Java의 객체지향 개념을 익혀 백엔드 개발의 기초를 다지고, 원하는 언어를 선택해 서버 구축까지 학습합니다.",
+          "Java의 객체지향 개념을 익히면서 클래스, 객체, 상속, 다형성, 캡슐화 같은 핵심 원리를 중점적으로 학습하여, 백엔드 개발의 기초를 탄탄하게 다져요!",
       },
       {
-        title: "NEST JS | SPRING",
-        content: "디자이너와 개발자를 연결하는 실시간 협업 도구",
+        title: "SPRING",
+        content:
+          "Spring Boot(Java)를 활용하여 REST API를 구축하고, 데이터베이스 연동 및 보안 기능을 구현하는 것을 학습해요!",
       },
       {
         title: "DATABASE",
