@@ -16,7 +16,7 @@ interface ICard {
 export default function ResponsiveCards() {
   return (
     <Container>
-      <h2>다양한 활동과 배움을 한곳에서!</h2>
+      <h2>매 기수 진행되는 다양한 활동들!</h2>
       <Row>
         {activityData.map((card) => (
           <Col key={card.id} xs={12} md={6} lg={6}>
@@ -44,7 +44,6 @@ const BlurCard = ({ card }: { card: ICard }) => {
           <CardText>{card.text}</CardText>
         </Overlay>
       </StyledCard>
-      <CardTitle>{card.title}</CardTitle>
     </CardWrapper>
   );
 };

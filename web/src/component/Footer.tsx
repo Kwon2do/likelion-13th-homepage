@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <FooterContainer>
       <FooterSection style={{ borderRight: "1px solid #000" }}>
-        <Logo src="/Logo.png" />
+        <Category>INFO</Category>
         <div>
           <Typo>멋쟁이사자처럼 인천대학교 | 대표자 권도훈</Typo>
           <Typo>인천광역시 연수구 아카데미로 119(송도동), 17호관 321호</Typo>
@@ -15,7 +15,7 @@ export default function Footer() {
       </FooterSection>
 
       <FooterSection>
-        <ContactTitle>CONTACT</ContactTitle>
+        <Category>CONTACT</Category>
         <div
           style={{
             display: "flex",
@@ -79,7 +79,7 @@ const FooterSection = styled.div`
   padding: 0 30px 0 0;
 `;
 
-const ContactTitle = styled(Typo)`
+const Category = styled(Typo)`
   font-size: 18px;
   font-family: "Pretendard-Bold";
 `;

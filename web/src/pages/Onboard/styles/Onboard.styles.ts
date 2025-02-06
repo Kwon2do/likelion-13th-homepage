@@ -36,10 +36,9 @@ export const Content = styled.div`
 `;
 
 export const BannerTitle = styled(motion.h1)`
-  font-family: "Pretendard-extra-bold";
-  font-size: 38px;
+  font-family: "Pretendard-Extrabold";
+  font-size: 50px;
   margin-bottom: 20px;
-
   @media (max-width: 768px) {
     font-size: 24px;
   }
@@ -47,7 +46,7 @@ export const BannerTitle = styled(motion.h1)`
 
 export const SubTitle = styled(motion.p)`
   font-size: 25px;
-  font-family: "Pretendard-Bold";
+  font-family: "Pretendard";
   margin-bottom: 20px;
 
   @media (max-width: 768px) {

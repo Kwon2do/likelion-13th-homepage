@@ -73,10 +73,11 @@ const AllSectionComponent: React.FC = () => {
       <Section id="intro" ref={introRef} style={{ overflow: "visible" }}>
         <h1
           ref={h1Ref}
-          style={{ color: "darkgray", fontSize: "24px", marginTop: "30vh" }}
+          style={{ color: "white", fontSize: "24px", marginTop: "30vh" }}
         >
-          인천대학교 최고의 IT 동아리 <br />
-          멋쟁이사자처럼을 소개합니다!
+          당신의 가능성을 키울 곳, 멋쟁이사자처럼!
+          <br />
+          지금부터 자세히 소개할게요.
         </h1>
       </Section>
       <Section

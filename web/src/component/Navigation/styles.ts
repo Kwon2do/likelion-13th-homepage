@@ -39,6 +39,7 @@ export const StyledNavLink = styled(Nav.Link)`
 export const ApplyButton = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   border: none;
   outline: none;
@@ -46,19 +47,40 @@ export const ApplyButton = styled.div`
   padding: 5.5px 12px;
   height: 32px;
   cursor: pointer;
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: #ff7710;
   border-radius: 4px;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  opacity: 0.5;
-  /* linear-gradient 배경 설정 */
-  background-image: linear-gradient(to right, darkgray, #ff7710);
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: 0% 100%;
-  transition: background-size 0.1s ease, color 0.1s ease;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+
   &:hover {
-    background-size: 100% 100%;
-    background-color: white;
+    transform: scale(1.05);
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(192, 192, 192, 0.3) 0px,
+      rgba(192, 192, 192, 0.3) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+    animation: stripeMove 1s linear infinite;
+    opacity: 0.5;
+  }
+
+  @keyframes stripeMove {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 `;
