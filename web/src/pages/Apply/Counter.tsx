@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import styled from "@emotion/styled";
-
+import { ApplyModal } from "../../component/Navigation";
 interface CountdownTimerProps {
-  deadline: string; // "YYYY-MM-DD HH:mm:ss" 형식
+  deadline: string;
 }
 
 const CountdownTimer: React.FC<CountdownTimerProps> = ({ deadline }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const calculateTimeLeft = () => {
     const now = new Date().getTime();
     const targetTime = new Date(deadline).getTime();
@@ -55,10 +56,11 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ deadline }) => {
           <Unit>초</Unit>
         </TimeText>
       </TimeContainer>
-      <ApplyButton>
+      <ApplyButton onClick={() => setIsOpen(true)}>
         13기 아기사자 지원하기
         <ArrowIcon />
       </ApplyButton>
+      {isOpen && <ApplyModal showModal={isOpen} setShowModal={setIsOpen} />}
     </TimerWrapper>
   );
 };
@@ -72,10 +74,6 @@ const TimerWrapper = styled.div`
   justify-content: center;
   gap: 10px;
   align-items: center;
-  position: absolute;
-  bottom: 10vh;
-  left: 50%;
-  transform: translateX(-50%);
   @media (max-width: 768px) {
     width: 60vw;
     display: flex;
@@ -154,12 +152,13 @@ const ApplyButton = styled.button`
     transform: scale(0.95);
   }
   @media (max-width: 768px) {
-    width: 100%;
+    width: 70vw;
   }
 `;
 
 const ArrowIcon = styled(FaArrowRight)`
   position: absolute;
-  right: 20px;
-  font-size: 20px;
+  right: 8px;
+  font-size: 24px;
+  padding: 0px 10px 0px 0px;
 `;

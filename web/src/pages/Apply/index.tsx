@@ -15,6 +15,7 @@ const PageWrapper = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   background-color: black;
   @media (max-width: 768px) {
@@ -26,9 +27,7 @@ const ApplyBanner = styled.img`
   width: 50%;
   height: auto;
   object-fit: cover;
-  margin-top: 150px;
   @media (max-width: 768px) {
     width: 100%;
-    margin-bottom: 250px;
   }
 `;
