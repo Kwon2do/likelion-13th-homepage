@@ -8,22 +8,27 @@ import {
 } from "./styles";
 import Navbar from "react-bootstrap/Navbar";
 import CustomModal from "../Modals";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-export default function NavBar() {
+export default function NavBar({ children }: { children: React.ReactNode }) {
   const [activeSection, setActiveSection] = useState<string>("");
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const handleScroll = (id: string): void => {
-    const section = document.getElementById(id);
-    if (section) {
-      window.scrollTo({
-        top: section.offsetTop,
-        behavior: "smooth",
-      });
+  useEffect(() => {
+    if (location.hash) {
+      const sectionId = location.hash.replace("#", "");
+      const section = document.getElementById(sectionId);
+      if (section) {
+        window.scrollTo({
+          top: section.offsetTop,
+          behavior: "smooth",
+        });
+      }
     }
-    setIsNavOpen(false);
-  };
+  }, [location]);
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
@@ -47,7 +52,7 @@ export default function NavBar() {
     <>
       <StyledNavbar expand="lg" data-bs-theme="light">
         <StyledContainer>
-          <Navbar.Brand href="#home" className="me-auto">
+          <Navbar.Brand as={Link} to="/">
             <img src="/Logo.svg" width="100px" height="auto" alt="Logo" />
           </Navbar.Brand>
           <Navbar.Toggle
@@ -61,38 +66,44 @@ export default function NavBar() {
           >
             <StyledNav>
               <StyledNavLink
-                onClick={() => handleScroll("aboutus")}
+                as={Link}
+                to="/#aboutus"
                 className={activeSection === "aboutus" ? "active" : ""}
               >
                 About Us
               </StyledNavLink>
               <StyledNavLink
-                onClick={() => handleScroll("curriculum")}
+                as={Link}
+                to="/#curriculum"
                 className={activeSection === "curriculum" ? "active" : ""}
               >
                 Curriculum
               </StyledNavLink>
               <StyledNavLink
-                onClick={() => handleScroll("activity")}
+                as={Link}
+                to="/#activity"
                 className={activeSection === "activity" ? "active" : ""}
               >
                 Activity
               </StyledNavLink>
-              <ApplyButton onClick={() => setShowModal(true)}>
+              <ApplyButton onClick={() => navigate("/apply")}>
                 Apply
               </ApplyButton>
             </StyledNav>
           </Navbar.Collapse>
         </StyledContainer>
       </StyledNavbar>
+      {children}
       <ApplyModal setShowModal={setShowModal} showModal={showModal} />
     </>
   );
 }
+
 interface ApplyModalProps {
   showModal: boolean;
   setShowModal: (show: boolean) => void;
 }
+
 export const ApplyModal = ({ setShowModal, showModal }: ApplyModalProps) => {
   return (
     <CustomModal

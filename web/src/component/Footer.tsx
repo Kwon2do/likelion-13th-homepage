@@ -42,7 +42,7 @@ export default function Footer() {
 
 const FooterContainer = styled.div`
   width: 100%;
-  height: 150px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,14 +51,6 @@ const FooterContainer = styled.div`
   background-color: #f2f4f6;
   @media (max-width: 768px) {
     height: 100px;
-  }
-`;
-
-const Logo = styled.img`
-  width: 200px;
-  height: auto;
-  @media (max-width: 768px) {
-    width: 100px;
   }
 `;
 
