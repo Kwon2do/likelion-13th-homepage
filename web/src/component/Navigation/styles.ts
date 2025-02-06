@@ -22,7 +22,7 @@ export const StyledNav = styled(Nav)`
 `;
 
 export const StyledNavLink = styled(Nav.Link)`
-  color: darkgray;
+  color: darkgray !important;
   text-decoration: none;
   font-weight: 500;
 
@@ -32,7 +32,7 @@ export const StyledNavLink = styled(Nav.Link)`
   }
 
   &:hover {
-    color: white;
+    color: white !important;
   }
 `;
 

@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import "./styles/CustomUI.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SectionDivider from "./Components/Divider";
 import {
   BannerTitle,
   SubTitle,
@@ -19,6 +18,7 @@ import AllSectionComponent from "./Components/Section";
 import { ApplyModal } from "../../component/Navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Footer from "../../component/Footer";
 gsap.registerPlugin(ScrollTrigger);
 export default function Onboard() {
   const [showModal, setShowModal] = useState(false);
@@ -88,6 +88,7 @@ export default function Onboard() {
         )}
       </PageContainer>
       <ApplyModal setShowModal={setShowModal} showModal={showModal} />
+      <Footer />
     </>
   );
 }
