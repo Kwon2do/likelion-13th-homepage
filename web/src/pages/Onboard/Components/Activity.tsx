@@ -109,11 +109,3 @@ const CardText = styled.p`
   text-align: left;
   padding: 0 40px;
 `;
-
-const CardTitle = styled.h3`
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 15px;
-  color: white;
-`;

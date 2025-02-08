@@ -14,7 +14,9 @@
     margin-right: 10vw !important;
   }
 }
-
+.navbar-toggler-icon {
+  filter: brightness(0) invert(1); /* 흰색으로 변경 */
+}
 .dropdown-menu.show {
   width: 50vw !important;
   border-radius: 20px;
