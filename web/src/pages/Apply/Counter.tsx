@@ -83,7 +83,7 @@ const TimerWrapper = styled.div`
 
 const TitleText = styled.div`
   color: #fba518;
-  font-family: "Pretendard-ExtraBold";
+  font-family: "Pretendard-extra-Bold";
   font-size: 48px;
   display: flex;
   flex-direction: column;
@@ -120,7 +120,7 @@ const ApplyButton = styled.button`
   background: linear-gradient(to right, #e65c00, #f9d423);
   color: white;
   font-size: 20px;
-  font-family: "Pretendard-ExtraBold";
+  font-family: "Pretendard-extra-Bold";
   padding: 12px 24px;
   border: none;
   border-radius: 8px;
@@ -131,26 +131,6 @@ const ApplyButton = styled.button`
   justify-content: center;
   align-items: center;
   gap: 10px;
-  transition: font-size 0.2s ease-in-out;
-  &:hover {
-    font-size: 18px;
-  }
-  &:before {
-    content: "";
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transform: scale(0);
-    transition: transform 0.2s ease-out;
-  }
-  &:hover:before {
-    transform: scale(2);
-  }
-  &:active {
-    transform: scale(0.95);
-  }
   @media (max-width: 768px) {
     width: 70vw;
   }

@@ -3,6 +3,7 @@ import "./App.css";
 import Onboard from "./pages/Onboard";
 import Apply from "./pages/Apply";
 import NavBar from "./component/Navigation";
+import ApplyForm from "./pages/Apply/ApplyForm";
 function App() {
   return (
     <BrowserRouter>
@@ -10,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Onboard />} />
           <Route path="/apply" element={<Apply />} />
+          <Route path="/apply/form" element={<ApplyForm />} />
         </Routes>
       </NavBar>
     </BrowserRouter>

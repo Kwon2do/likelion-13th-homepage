@@ -58,6 +58,7 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
             onClick={() => setIsNavOpen(!isNavOpen)}
+            style={{ border: "none" }}
           />
           <Navbar.Collapse
             id="basic-navbar-nav"
@@ -69,6 +70,7 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
                 as={Link}
                 to="/#aboutus"
                 className={activeSection === "aboutus" ? "active" : ""}
+                onClick={() => setIsNavOpen(false)}
               >
                 About Us
               </StyledNavLink>
@@ -76,6 +78,7 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
                 as={Link}
                 to="/#curriculum"
                 className={activeSection === "curriculum" ? "active" : ""}
+                onClick={() => setIsNavOpen(false)}
               >
                 Curriculum
               </StyledNavLink>
@@ -83,10 +86,16 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
                 as={Link}
                 to="/#activity"
                 className={activeSection === "activity" ? "active" : ""}
+                onClick={() => setIsNavOpen(false)}
               >
                 Activity
               </StyledNavLink>
-              <ApplyButton onClick={() => navigate("/apply")}>
+              <ApplyButton
+                onClick={() => {
+                  navigate("/apply");
+                  setIsNavOpen(false);
+                }}
+              >
                 Apply
               </ApplyButton>
             </StyledNav>

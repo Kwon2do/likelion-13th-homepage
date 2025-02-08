@@ -36,7 +36,7 @@ export const Content = styled.div`
 `;
 
 export const BannerTitle = styled(motion.h1)`
-  font-family: "Pretendard-Extrabold";
+  font-family: "Pretendard-extra-bold";
   font-size: 50px;
   margin-bottom: 20px;
   @media (max-width: 768px) {
@@ -79,7 +79,7 @@ export const Section = styled.section`
     text-align: center;
     color: rgb(255, 119, 16);
     @media (max-width: 768px) {
-      font-size: clamp(18px, 32px, 32px) !important;
+      font-size: 24px !important;
     }
   }
   h2 {
