@@ -3,7 +3,6 @@ import { FormField, Label, SubmitButton } from "../styles";
 import Form from "react-bootstrap/Form";
 import { UseFormRegister } from "react-hook-form";
 import type { FormData } from "../../../../atoms/applyAtom";
-import CustomModal from "../../../../component/Modals";
 
 interface Step5FormProps {
   register: UseFormRegister<FormData>;
@@ -67,36 +66,6 @@ const Step5Form: React.FC<Step5FormProps> = ({
       <SubmitButton type="submit" onClick={() => setShowModal(true)}>
         제출하기
       </SubmitButton>
-      <CustomModal
-        show={showModal}
-        onHide={() => {
-          setShowModal(false);
-          window.location.href = "/";
-        }}
-        title="지원 완료"
-        content={
-          <p
-            style={{
-              fontSize: "14px",
-              color: "gray",
-              lineHeight: "1.5",
-              textAlign: "center",
-            }}
-          >
-            멋쟁이사자처럼 인천대학교 13기 아기사자 모집에 지원해주셔서
-            감사합니다.
-            <br />
-            1차 서류 합격 발표는 지원자님께서 성의껏 작성해주신 지원서를 면밀히
-            검토 후
-            <br />
-            <strong>2월 23일 (일) 저녁 중</strong>으로 기재하신 연락처로
-            메시지를 발송할 예정입니다.
-            <br />
-            감사합니다.
-          </p>
-        }
-        primaryColor="#ff7710"
-      />
     </form>
   );
 };

@@ -113,3 +113,7 @@
     box-shadow: none !important;
   }
 }
+
+.spinner-border {
+  color: #ff7710 !important;
+}
