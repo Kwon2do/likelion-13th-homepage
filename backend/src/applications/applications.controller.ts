@@ -37,7 +37,7 @@ export class ApplicationsController {
           secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
           region: process.env.AWS_REGION,
         }),
-        bucket: 'likelion-inu-apply', // 본인의 S3 버킷 이름으로 변경하세요.
+        bucket: 'likelion-inu-apply',
         key: (req, file, callback) => {
           const uniqueSuffix = uuidv4();
           const fileExtName = extname(file.originalname);
@@ -50,7 +50,6 @@ export class ApplicationsController {
     @UploadedFile() file: MulterS3File,
     @Body() body: Partial<Application>,
   ): Promise<Application> {
-    // multer-s3가 업로드 후 file.location에 S3 URL을 채워줍니다.
     const fileUrl = file ? file.location : null;
     const data: Partial<Application> = {
       ...body,
