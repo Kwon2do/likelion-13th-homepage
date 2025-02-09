@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ApplicationsModule } from './applications/applications.module';
+import { HealthController } from './health.controller';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { ApplicationsModule } from './applications/applications.module';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
-        type: 'mysql',
+        type: 'mariadb',
         host: configService.get('DB_HOST'),
         port: parseInt(configService.get<string>('DB_PORT', '3306'), 10),
         username: configService.get('DB_USERNAME'),
@@ -26,5 +27,6 @@ import { ApplicationsModule } from './applications/applications.module';
     }),
     ApplicationsModule,
   ],
+  controllers: [HealthController], // HealthController 등록
 })
 export class AppModule {}
