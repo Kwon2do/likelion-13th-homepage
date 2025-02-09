@@ -63,7 +63,7 @@ export default function CustomModal({
       </CenteredModalHeader>
       <Modal.Body>
         <ModalContent>
-          <LionImage src={imageUrl} alt="Modal Image" />
+          {imageUrl && <LionImage src={imageUrl} alt="Modal Image" />}
           {content}
         </ModalContent>
       </Modal.Body>
