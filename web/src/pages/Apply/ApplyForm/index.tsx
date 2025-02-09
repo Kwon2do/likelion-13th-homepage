@@ -76,6 +76,7 @@ const ApplyForm: React.FC = () => {
           {
             method: "POST",
             body: formDataToSend,
+            credentials: "include",
           }
         );
         if (response.ok) {
