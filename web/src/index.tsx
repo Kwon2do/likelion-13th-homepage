@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+import { RecoilRoot } from "recoil";
 
 const rootElement = document.getElementById("root");
 
@@ -9,10 +10,10 @@ if (!rootElement) {
 } else {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
-    <React.StrictMode>
-      <>
-        <App />
-      </>
-    </React.StrictMode>
+    //<React.StrictMode>
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
+    //</React.StrictMode>
   );
 }

@@ -56,7 +56,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ deadline }) => {
           <Unit>초</Unit>
         </TimeText>
       </TimeContainer>
-      <ApplyButton onClick={() => setIsOpen(true)}>
+      <ApplyButton onClick={() => (window.location.href = "/apply/form")}>
         13기 아기사자 지원하기
         <ArrowIcon />
       </ApplyButton>
