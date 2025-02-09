@@ -19,12 +19,14 @@ import { ApplyModal } from "../../component/Navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Footer from "../../component/Footer";
+import { useNavigate } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 export default function Onboard() {
   const [showModal, setShowModal] = useState(false);
   const { scrollToTop, showScrollArrow, showTopButton } = useScroll();
   const wrapperRef = useRef(null);
   const sectionRef = useRef(null);
+  const navigate = useNavigate();
   useEffect(() => {
     gsap
       .timeline({
@@ -65,7 +67,7 @@ export default function Onboard() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 2, duration: 0.8, ease: "easeInOut" }}
-              onClick={() => setShowModal(true)}
+              onClick={() => navigate("/apply")}
             >
               13기 아기사자 지원하기
             </Button>

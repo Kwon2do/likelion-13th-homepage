@@ -1,4 +1,3 @@
-// src/pages/ApplyForm.tsx
 import React, { useState, useEffect } from "react";
 import {
   PageWrapper,
@@ -17,14 +16,17 @@ import Step3Form from "./components/ApplyStep3";
 import Step4Form from "./components/ApplyStep4";
 import Step5Form from "./components/ApplyStep5";
 import { useRecoilState } from "recoil";
-import { formDataState, FormData } from "../../../atoms/applyAtom";
+import { formDataState } from "../../../atoms/applyAtom";
+import type { FormData } from "../../../atoms/applyAtom";
 
 const ApplyForm: React.FC = () => {
   const [step, setStep] = useState<number>(1);
+  const [portfolioFile, setPortfolioFile] = useState<File | null>(null);
   const [formData, setFormData] = useRecoilState<FormData>(formDataState);
-  const { register, handleSubmit, reset, getValues } = useForm<FormData>({
+  const methods = useForm<FormData>({
     defaultValues: formData,
   });
+  const { register, handleSubmit, reset, getValues } = methods;
   const [showToast, setShowToast] = useState<boolean>(false);
 
   // 단계 변경 시 Recoil에 저장된 값으로 폼을 리셋합니다.
@@ -38,17 +40,38 @@ const ApplyForm: React.FC = () => {
     setStep(nextStep);
   };
 
-  const onSubmit = (data: FormData) => {
-    const updatedData = { ...formData, ...data };
+  // onSubmit에서 portfolioFile 사용하기
+  const onSubmit = async (data: FormData) => {
+    const updatedData = { ...formData, ...data, portfolio: portfolioFile };
+    console.log("최종 제출 데이터:", updatedData);
     setFormData(updatedData);
     if (step < 5) {
       setStep(step + 1);
-    } else {
-      // 최종 제출 시 콘솔에 저장된 데이터 출력
-      console.log("최종 제출 데이터:", updatedData);
+    } else if (step === 5) {
+      try {
+        const formDataToSend = new FormData();
+        Object.entries(updatedData).forEach(([key, value]) => {
+          if (value !== null && value !== undefined) {
+            if (key === "portfolio" && value instanceof File) {
+              formDataToSend.append(key, value);
+            } else {
+              formDataToSend.append(key, String(value));
+            }
+          }
+        });
+
+        const response = await fetch(
+          "https://port-0-likelion-13th-homepage-m6xxoqjg3249c6c2.sel4.cloudtype.app/applications",
+          {
+            method: "POST",
+            body: formDataToSend,
+          }
+        );
+      } catch (error) {
+        console.error("최종 제출 에러:", error);
+      }
     }
   };
-
   return (
     <PageWrapper>
       <ToastMessage
@@ -123,6 +146,7 @@ const ApplyForm: React.FC = () => {
                 <Step5Form
                   register={register}
                   onSubmit={handleSubmit(onSubmit)}
+                  setPortfolioFile={setPortfolioFile}
                 />
               </FormWrapper>
             );

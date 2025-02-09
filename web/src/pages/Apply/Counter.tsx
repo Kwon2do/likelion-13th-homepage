@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import styled from "@emotion/styled";
-import { ApplyModal } from "../../component/Navigation";
+import CustomModal from "../../component/Modals";
+import { useNavigate } from "react-router-dom"; // useNavigate import
+
 interface CountdownTimerProps {
   deadline: string;
 }
 
 const CountdownTimer: React.FC<CountdownTimerProps> = ({ deadline }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const navigate = useNavigate(); // navigate hook 사용
+
   const calculateTimeLeft = () => {
     const now = new Date().getTime();
     const targetTime = new Date(deadline).getTime();
@@ -35,6 +39,17 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ deadline }) => {
     return () => clearInterval(timer);
   }, [deadline]);
 
+  // 클릭 이벤트 핸들러: 화면 너비에 따라 다르게 처리
+  const handleApplyClick = () => {
+    if (window.innerWidth > 768) {
+      // PC 버전: 페이지 이동
+      navigate("/apply/form");
+    } else {
+      // 모바일 버전: 모달 표시
+      setIsOpen(true);
+    }
+  };
+
   return (
     <TimerWrapper>
       <TitleText>지원서 마감</TitleText>
@@ -56,17 +71,26 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ deadline }) => {
           <Unit>초</Unit>
         </TimeText>
       </TimeContainer>
-      <ApplyButton onClick={() => (window.location.href = "/apply/form")}>
+      <ApplyButton onClick={handleApplyClick}>
         13기 아기사자 지원하기
         <ArrowIcon />
       </ApplyButton>
-      {isOpen && <ApplyModal showModal={isOpen} setShowModal={setIsOpen} />}
+      {isOpen && (
+        <CustomModal
+          show={isOpen}
+          onHide={() => setIsOpen(false)}
+          title="LIKELION INU"
+          content="지원서 제출은 PC로만 가능합니다."
+          primaryColor="black"
+        />
+      )}
     </TimerWrapper>
   );
 };
 
 export default CountdownTimer;
 
+// 스타일드 컴포넌트 (변경 없음)
 const TimerWrapper = styled.div`
   width: 50vw;
   display: flex;

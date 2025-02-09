@@ -11,7 +11,7 @@ export interface FormData {
   question2: string;
   question3: string;
   question4: string;
-  portfolio: string | null;
+  portfolio: File | string | null;
 }
 
 export const formDataState = atom<FormData>({
