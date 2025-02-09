@@ -4,9 +4,8 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const allowedOrigin = 'https://likelion-inu.com/' || 'http://localhost:3000';
   app.enableCors({
-    origin: allowedOrigin,
+    origin: ['https://likelion-inu.com', 'http://localhost:3000'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
