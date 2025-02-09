@@ -71,10 +71,13 @@ const ApplyForm: React.FC = () => {
             }
           }
         });
-        const response = await fetch(process.env.REACT_APP_API_URL as string, {
-          method: "POST",
-          body: formDataToSend,
-        });
+        const response = await fetch(
+          "https://port-0-likelion-13th-homepage-m6xxoqjg3249c6c2.sel4.cloudtype.app/applications",
+          {
+            method: "POST",
+            body: formDataToSend,
+          }
+        );
         if (response.ok) {
           setIsLoading(false);
           setShowModal(true);
