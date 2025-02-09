@@ -1,3 +1,4 @@
+// src/applications/applications.controller.ts
 import {
   Controller,
   Post,
@@ -15,21 +16,17 @@ import * as multerS3 from 'multer-s3';
 import { ConfigService } from '@nestjs/config';
 import type { File as MulterFile } from 'multer';
 
-// 사용자 정의 타입: Multer의 File 타입을 확장하여 S3 업로드 시 추가되는 location 속성을 포함
-/* eslint-disable */
+// Multer의 File 타입 확장: multer-s3 업로드 후 location 속성이 추가됩니다.
 interface MulterS3File extends MulterFile {
   location: string;
 }
-
+/* eslint-disable */
 @Controller('applications')
 export class ApplicationsController {
   constructor(
     private readonly applicationsService: ApplicationsService,
     private readonly configService: ConfigService,
-  ) {
-    // 디버깅용: 환경변수가 제대로 로드되었는지 확인
-    console.log('AWS_S3_BUCKET:', process.env.AWS_S3_BUCKET);
-  }
+  ) {}
 
   @Post()
   @UseInterceptors(
@@ -40,8 +37,7 @@ export class ApplicationsController {
           secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
           region: process.env.AWS_REGION,
         }),
-        bucket: 'likelion-inu-apply',
-        acl: 'public-read', // 업로드한 파일을 공개 읽기 가능하도록 설정
+        bucket: 'likelion-inu-apply', // 본인의 S3 버킷 이름으로 변경하세요.
         key: (req, file, callback) => {
           const uniqueSuffix = uuidv4();
           const fileExtName = extname(file.originalname);
@@ -51,14 +47,14 @@ export class ApplicationsController {
     }),
   )
   async create(
-    @UploadedFile() file: MulterS3File, // 사용자 정의 타입 사용
+    @UploadedFile() file: MulterS3File,
     @Body() body: Partial<Application>,
   ): Promise<Application> {
-    // multer-s3가 업로드에 성공하면 file.location에 S3 URL이 들어옵니다.
+    // multer-s3가 업로드 후 file.location에 S3 URL을 채워줍니다.
     const fileUrl = file ? file.location : null;
     const data: Partial<Application> = {
       ...body,
-      portfolio: fileUrl ? fileUrl : undefined,
+      portfolio: fileUrl || undefined,
     };
 
     const application = await this.applicationsService.createApplication(data);
