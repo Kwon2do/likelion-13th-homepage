@@ -41,7 +41,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ deadline }) => {
 
   // 클릭 이벤트 핸들러: 화면 너비에 따라 다르게 처리
   const handleApplyClick = () => {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 900) {
       // PC 버전: 페이지 이동
       navigate("/apply/form");
     } else {
@@ -90,25 +90,22 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ deadline }) => {
 
 export default CountdownTimer;
 
-// 스타일드 컴포넌트 (변경 없음)
 const TimerWrapper = styled.div`
-  width: 50vw;
+  width: 70vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
   align-items: center;
   @media (max-width: 768px) {
-    width: 60vw;
-    display: flex;
-    bottom: 20vh;
+    width: 70vw;
   }
 `;
 
 const TitleText = styled.div`
   color: #fba518;
   font-family: "Pretendard-extra-Bold";
-  font-size: 48px;
+  font-size: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -118,29 +115,38 @@ const TitleText = styled.div`
   }
 `;
 
-const Unit = styled.span`
+const Unit = styled.div`
+  width: 50px;
   color: darkgray;
-  font-size: 18px;
+  font-size: 24px !important;
 `;
 const TimeContainer = styled.div`
-  width: 40vw;
+  width: 50vw;
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 100px;
   align-items: center;
   font-size: 100px;
   @media (max-width: 768px) {
-    width: 80vw;
+    width: 40vw;
     font-size: 24px;
+    gap: 50px;
   }
 `;
 
-const TimeText = styled.span`
+const TimeText = styled.div`
+  width: 10vw !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "Pretendard-Bold";
   color: white !important;
+  @media (max-width: 768px) {
+    width: 40px !important;
+  }
 `;
 const ApplyButton = styled.button`
-  width: 30%;
+  width: 50%;
   background: linear-gradient(to right, #e65c00, #f9d423);
   color: white;
   font-size: 20px;

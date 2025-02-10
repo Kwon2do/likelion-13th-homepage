@@ -10,7 +10,7 @@ export default function Apply() {
 }
 
 const ApplyBanner = styled.img`
-  width: 50%;
+  width: 70%;
   height: auto;
   object-fit: cover;
   @media (max-width: 768px) {
@@ -20,10 +20,10 @@ const ApplyBanner = styled.img`
 
 const PageWrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   background-color: black;
 `;
