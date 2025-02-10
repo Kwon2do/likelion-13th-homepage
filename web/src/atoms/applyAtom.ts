@@ -7,6 +7,7 @@ export interface FormData {
   major: string;
   grade: string;
   status: string;
+  part: string;
   question1: string;
   question2: string;
   question3: string;
@@ -23,6 +24,7 @@ export const formDataState = atom<FormData>({
     major: "",
     grade: "",
     status: "",
+    part: "",
     question1: "",
     question2: "",
     question3: "",

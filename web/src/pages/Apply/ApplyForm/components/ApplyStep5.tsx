@@ -35,7 +35,7 @@ const Step5Form: React.FC<Step5FormProps> = ({
   return (
     <form onSubmit={onSubmit}>
       <FormField>
-        <Label>포트폴리오 제출 (PDF 형식만 허용)</Label>
+        <Label>포트폴리오 PDF 제출 (선택 사항)</Label>
         <Form.Control
           type="file"
           accept=".pdf"

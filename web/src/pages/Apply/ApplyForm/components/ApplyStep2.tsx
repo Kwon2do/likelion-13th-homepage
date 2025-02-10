@@ -111,6 +111,34 @@ const Step2Form: React.FC<Step2FormProps> = ({
           </span>
         )}
       </div>
+      <FormField>
+        <Label>지원 파트</Label>
+        <div style={{ display: "flex", gap: "20px" }}>
+          <Form.Check
+            type="radio"
+            label="기획/디자인"
+            value="기획/디자인"
+            {...register("part", { required: "지원 파트를 선택해주세요." })}
+          />
+          <Form.Check
+            type="radio"
+            label="프론트엔드"
+            value="프론트엔드"
+            {...register("part")}
+          />
+          <Form.Check
+            type="radio"
+            label="백엔드"
+            value="백엔드"
+            {...register("part")}
+          />
+        </div>
+        {errors.part && (
+          <span style={{ color: "red", fontSize: "12px" }}>
+            {errors.part.message}
+          </span>
+        )}
+      </FormField>
       <SubmitButton type="submit">다음</SubmitButton>
     </StyledForm>
   );
