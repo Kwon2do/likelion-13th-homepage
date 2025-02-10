@@ -53,10 +53,7 @@ const Step1Agreement: React.FC<Step1AgreementProps> = ({
                     name="feeAgreement"
                     onChange={(e) => setIsChecked(e.target.checked)}
                   />
-                  <Form.Check.Label>
-                    네, 본사 교육비(70,000원) 및 학교 회비(한 학기 20,000원)에
-                    동의합니다.
-                  </Form.Check.Label>
+                  <Form.Check.Label>네, 위 내용에 동의합니다.</Form.Check.Label>
                 </Form.Check>
               ) : null}
               <NextButton onClick={handleNextAgreementStep}>다음</NextButton>
