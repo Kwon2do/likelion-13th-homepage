@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import styled from "@emotion/styled";
 import Navbar from "react-bootstrap/Navbar";
 export const StyledNavbar = styled(Navbar)`
-  background-color: transparent;
+  background-color: black;
   position: fixed;
   width: 100%;
   z-index: 1000;

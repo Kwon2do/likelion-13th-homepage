@@ -114,11 +114,11 @@ const TitleText = styled.div`
     font-size: 32px;
   }
 `;
-
-const Unit = styled.div`
-  width: 50px;
+const Unit = styled.span`
   color: darkgray;
   font-size: 24px !important;
+  white-space: nowrap;
+  vertical-align: baseline;
 `;
 const TimeContainer = styled.div`
   width: 50vw;
@@ -128,23 +128,26 @@ const TimeContainer = styled.div`
   align-items: center;
   font-size: 100px;
   @media (max-width: 768px) {
-    width: 40vw;
+    width: 60vw;
     font-size: 24px;
     gap: 50px;
   }
 `;
 
 const TimeText = styled.div`
-  width: 10vw !important;
+  width: auto;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   font-family: "Pretendard-Bold";
   color: white !important;
+  font-size: 100px;
+  gap: 5px;
   @media (max-width: 768px) {
-    width: 40px !important;
+    font-size: 24px;
   }
 `;
+
 const ApplyButton = styled.button`
   width: 50%;
   background: linear-gradient(to right, #e65c00, #f9d423);

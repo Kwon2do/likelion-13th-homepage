@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
+import ResumeComponent from "./Resume"; // ResumeComponent import
 
 interface Application {
   id: number;
@@ -127,45 +128,21 @@ const ApplicationList: React.FC = () => {
       ) : (
         <>
           {filteredApplications.map((app) => (
-            <ResumeCard key={app.id}>
-              <h3>
-                {app.name} ({app.studentId})
-              </h3>
-              <p>
-                <strong>휴대폰 번호:</strong> {app.phone}
-              </p>
-              <p>
-                <strong>전공:</strong> {app.major}
-              </p>
-              <p>
-                <strong>학년:</strong> {app.grade}
-              </p>
-              <p>
-                <strong>상태:</strong> {renderStatus(app.status)}
-              </p>
-              <p>
-                <strong>질문 1:</strong> {app.question1}
-              </p>
-              <p>
-                <strong>질문 2:</strong> {app.question2}
-              </p>
-              <p>
-                <strong>질문 3:</strong> {app.question3}
-              </p>
-              <p>
-                <strong>질문 4:</strong> {app.question4}
-              </p>
-              <p>
-                <strong>포트폴리오:</strong>{" "}
-                <a
-                  href={app.portfolio}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  포트폴리오 보기
-                </a>
-              </p>
-            </ResumeCard>
+            <ResumeComponent
+              key={app.id}
+              name={app.name}
+              studentId={app.studentId}
+              phone={app.phone}
+              major={app.major}
+              grade={app.grade}
+              status={app.status}
+              question1={app.question1}
+              question2={app.question2}
+              question3={app.question3}
+              question4={app.question4}
+              portfolio={app.portfolio}
+              renderStatus={renderStatus}
+            />
           ))}
           <PaginationWrapper>
             <button onClick={() => fetchApplications()} disabled={loading}>
@@ -177,20 +154,14 @@ const ApplicationList: React.FC = () => {
     </PageWrapper>
   );
 };
-export default ApplicationList;
-export const PageWrapper = styled.div`
-  padding: 20px;
-  background-color: #f4f4f4;
-  min-height: 100vh;
-`;
 
-export const ResumeCard = styled.div`
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+export default ApplicationList;
+
+export const PageWrapper = styled.div`
+  padding: 100px 20px 20px;
+  background-color: black;
+  min-height: calc(100vh - 100px);
+  box-sizing: border-box;
 `;
 
 export const PaginationWrapper = styled.div`
