@@ -14,4 +14,8 @@ export class ApplicationsService {
     const application = this.applicationRepository.create(data);
     return await this.applicationRepository.save(application);
   }
+  //지원정보 조회API
+  async findAllApplications(): Promise<Application[]> {
+    return await this.applicationRepository.find();
+  }
 }

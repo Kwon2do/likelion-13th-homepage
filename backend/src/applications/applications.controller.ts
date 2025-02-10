@@ -5,6 +5,7 @@ import {
   UseInterceptors,
   UploadedFile,
   Body,
+  Get,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApplicationsService } from './applications.service';
@@ -59,5 +60,10 @@ export class ApplicationsController {
     const application = await this.applicationsService.createApplication(data);
     console.log('DB에 저장된 데이터:', application);
     return application;
+  }
+  // **추가된 GET 요청 (전체 데이터 조회)**
+  @Get()
+  async getAllApplications(): Promise<Application[]> {
+    return this.applicationsService.findAllApplications();
   }
 }
