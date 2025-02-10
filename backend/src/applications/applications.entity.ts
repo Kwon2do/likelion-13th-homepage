@@ -29,6 +29,9 @@ export class Application {
   status: string;
 
   @Column({ type: 'text' })
+  part: string;
+
+  @Column({ type: 'text' })
   question1: string;
 
   @Column({ type: 'text' })
@@ -40,7 +43,6 @@ export class Application {
   @Column({ type: 'text' })
   question4: string;
 
-  // 포트폴리오 파일 URL 저장 (S3 URL)
   @Column({ nullable: true })
   portfolio: string;
 
