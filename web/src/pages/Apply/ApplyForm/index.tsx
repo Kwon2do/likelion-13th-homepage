@@ -187,7 +187,6 @@ const ApplyForm: React.FC = () => {
             return null;
         }
       })()}
-      {/* 제출 성공 후 모달 띄우기 */}
       {showModal && (
         <CustomModal
           show={showModal}

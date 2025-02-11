@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import ResumeComponent from "./Resume"; // ResumeComponent import
-
+import { ResumeComponent } from "./Resume"; // ResumeComponent import
 interface Application {
+  part: string;
   id: number;
   name: string;
   studentId: string;
@@ -112,7 +112,7 @@ const ApplicationList: React.FC = () => {
 
   return (
     <PageWrapper>
-      <h2>지원자 목록</h2>
+      <h2 style={{ color: "#ff7710" }}>지원자 목록</h2>
       <SearchWrapper>
         <input
           type="text"
@@ -136,6 +136,7 @@ const ApplicationList: React.FC = () => {
               major={app.major}
               grade={app.grade}
               status={app.status}
+              part={app.part}
               question1={app.question1}
               question2={app.question2}
               question3={app.question3}

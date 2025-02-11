@@ -276,13 +276,4 @@ export const scheduleEvents = [
       },
     ],
   },
-  {
-    month: "26년 2월",
-    events: [
-      {
-        title: "실리콘밸리 기업 탐방",
-        description: "우수 활동자들과 함께 해외 선진 기업을 탐방해요.",
-      },
-    ],
-  },
 ];
