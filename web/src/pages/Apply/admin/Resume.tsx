@@ -2,15 +2,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { Document, Page, pdfjs } from "react-pdf";
-
-// cdnjs에서 제공하는 사용 가능한 버전 번호를 직접 지정합니다.
-// (예시: 2.16.105 버전)
-// https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js 가 실제로 로드되는지 확인하세요.
 pdfjs.GlobalWorkerOptions.workerSrc =
   "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
-
 // --------------------
-// 1. ResumeComponent (지원서 컴포넌트)
+// 1. 타입 및 ResumeComponent
 // --------------------
 export interface ResumeProps {
   name: string;
@@ -24,9 +19,9 @@ export interface ResumeProps {
   question2: string;
   question3: string;
   question4: string;
-  portfolio: string;
+  portfolio: string; // PDF 파일 URL
   renderStatus: (status: string) => string;
-  /** 미리보기 모드일 경우 true로 전달 (슬라이더 오른쪽 미리보기) */
+  /** 미리보기 모드 (슬라이더 등에서 사용) */
   isPreview?: boolean;
 }
 
@@ -94,10 +89,12 @@ export const ResumeComponent: React.FC<ResumeProps> = ({
         <br />
         {question4}
       </p>
+
       <PortfolioWrapper>
-        <strong>포트폴리오 미리보기:</strong>
+        <strong>포트폴리오</strong>
+        <br />
         {portfolio.endsWith(".pdf") ? (
-          <PdfViewer pdfUrl={portfolio} />
+          <a href={portfolio}>포트폴리오 다운로드</a>
         ) : (
           <p>포트폴리오 파일이 PDF 형식이 아닙니다.</p>
         )}
@@ -106,12 +103,77 @@ export const ResumeComponent: React.FC<ResumeProps> = ({
   );
 };
 
+// --------------------
+// 2. PDF 미리보기 컴포넌트 (React-PDF 사용 + Blob 방식)
+// --------------------
+interface PdfViewerProps {
+  pdfUrl: string; // 서버 상의 PDF 다운로드 주소
+}
+
+const PdfViewer: React.FC<PdfViewerProps> = ({ pdfUrl }) => {
+  // fetch로 받아온 Blob의 임시 URL
+  const [pdfBlobUrl, setPdfBlobUrl] = useState<string | null>(null);
+  const [numPages, setNumPages] = useState<number>(0);
+
+  // 1) 서버에서 PDF 파일을 Blob으로 받은 뒤, createObjectURL로 변환
+  useEffect(() => {
+    const fetchPDF = async () => {
+      try {
+        const response = await fetch(pdfUrl);
+        if (!response.ok) {
+          throw new Error("Failed to fetch PDF");
+        }
+        const blob = await response.blob();
+        const objectUrl = URL.createObjectURL(blob);
+        setPdfBlobUrl(objectUrl);
+      } catch (error) {
+        console.error("Error fetching PDF:", error);
+      }
+    };
+    fetchPDF();
+  }, [pdfUrl]);
+
+  // 2) PDF 로드 성공 시, 전체 페이지 수 세팅
+  const onDocumentLoadSuccess = (pdf: any) => {
+    console.log("PDF 로드 성공. 페이지 수:", pdf.numPages);
+    setNumPages(pdf.numPages);
+  };
+
+  return (
+    <PdfContainer>
+      {/* pdfBlobUrl이 준비되면 <Document>에 넣어 React-PDF로 렌더링 */}
+      {pdfBlobUrl ? (
+        <Document
+          file={pdfBlobUrl}
+          onLoadSuccess={onDocumentLoadSuccess}
+          loading="PDF를 불러오는 중입니다..."
+        >
+          {/* PDF 전체 페이지 반복 렌더링 */}
+          {Array.from({ length: numPages }, (_, index) => (
+            <Page
+              key={`page_${index + 1}`}
+              pageNumber={index + 1}
+              width={600}
+            />
+          ))}
+        </Document>
+      ) : (
+        <p>PDF를 불러오는 중입니다...</p>
+      )}
+    </PdfContainer>
+  );
+};
+
+// --------------------
+// 3. 스타일 정의
+// --------------------
 const ResumeCard = styled.div<{ preview?: boolean }>`
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
+
   box-shadow: ${(props) =>
     props.preview
       ? "0 4px 12px rgba(0, 0, 0, 0.3)"
@@ -125,138 +187,14 @@ const PortfolioWrapper = styled.div`
   margin-top: 20px;
 `;
 
-// --------------------
-// 2. PDF 미리보기 컴포넌트 (react-pdf 사용)
-// --------------------
-interface PdfViewerProps {
-  pdfUrl: string;
-}
-
-export const PdfViewer: React.FC<PdfViewerProps> = ({ pdfUrl }) => {
-  const [pdfData, setPdfData] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchPDF = async () => {
-      try {
-        const response = await fetch(pdfUrl);
-        if (!response.ok) {
-          throw new Error("Failed to fetch PDF");
-        }
-        const blob = await response.blob();
-        // Blob으로부터 Object URL 생성 (자동 다운로드 방지)
-        const objectUrl = URL.createObjectURL(blob);
-        setPdfData(objectUrl);
-      } catch (error) {
-        console.error("Error fetching PDF:", error);
-      }
-    };
-
-    fetchPDF();
-  }, [pdfUrl]);
-
-  const onDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {
-    console.log("PDF 로드 성공. 페이지 수:", numPages);
-  };
-
-  return (
-    <PdfContainer>
-      {pdfData ? (
-        <Document
-          file={pdfData}
-          onLoadSuccess={onDocumentLoadSuccess}
-          loading="PDF를 불러오는 중입니다..."
-        >
-          <Page pageNumber={1} width={600} />
-        </Document>
-      ) : (
-        <p>PDF를 불러오는 중입니다...</p>
-      )}
-    </PdfContainer>
-  );
-};
-
+// PDF 뷰어 영역 (스크롤 등 필요시 조정)
 const PdfContainer = styled.div`
   width: 100%;
+  max-height: 800px; /* 세로 길이 제한이 필요한 경우 */
+  overflow-y: auto;
+
   canvas {
     width: 100% !important;
     height: auto !important;
   }
-`;
-
-// --------------------
-// 3. 지원서 슬라이더 컴포넌트 (한 번에 한 지원서만 보이도록)
-// --------------------
-interface ResumeCarouselProps {
-  resumes: ResumeProps[];
-}
-
-export const ResumeCarousel: React.FC<ResumeCarouselProps> = ({ resumes }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % resumes.length);
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + resumes.length) % resumes.length
-    );
-  };
-
-  const currentResume = resumes[currentIndex];
-  const nextResume = resumes[(currentIndex + 1) % resumes.length];
-
-  return (
-    <CarouselContainer>
-      <Arrow onClick={handlePrev}>‹</Arrow>
-      <Slides>
-        <CurrentSlide>
-          <ResumeComponent {...currentResume} />
-        </CurrentSlide>
-        {/* 오른쪽 그림자 효과 영역 클릭 시 다음 지원서로 전환 */}
-        <ShadowSlide onClick={handleNext}>
-          <ResumeComponent {...nextResume} isPreview />
-        </ShadowSlide>
-      </Slides>
-      <Arrow onClick={handleNext}>›</Arrow>
-    </CarouselContainer>
-  );
-};
-
-const CarouselContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin: 20px 0;
-`;
-
-const Slides = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-  width: 80%;
-`;
-
-const CurrentSlide = styled.div`
-  flex: 0 0 100%;
-`;
-
-const ShadowSlide = styled.div`
-  flex: 0 0 30%;
-  margin-left: -50px;
-  opacity: 0.7;
-  cursor: pointer;
-  transition: opacity 0.3s;
-  &:hover {
-    opacity: 1;
-  }
-`;
-
-const Arrow = styled.button`
-  background-color: transparent;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 1;
 `;

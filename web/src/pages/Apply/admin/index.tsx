@@ -145,11 +145,6 @@ const ApplicationList: React.FC = () => {
               renderStatus={renderStatus}
             />
           ))}
-          <PaginationWrapper>
-            <button onClick={() => fetchApplications()} disabled={loading}>
-              더 불러오기
-            </button>
-          </PaginationWrapper>
         </>
       )}
     </PageWrapper>
