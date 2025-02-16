@@ -93,11 +93,7 @@ export const ResumeComponent: React.FC<ResumeProps> = ({
       <PortfolioWrapper>
         <strong>포트폴리오</strong>
         <br />
-        {portfolio.endsWith(".pdf") ? (
-          <a href={portfolio}>포트폴리오 다운로드</a>
-        ) : (
-          <p>포트폴리오 파일이 PDF 형식이 아닙니다.</p>
-        )}
+        <a href={portfolio}>포트폴리오 다운로드</a>
       </PortfolioWrapper>
     </ResumeCard>
   );
