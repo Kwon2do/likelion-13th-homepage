@@ -4,7 +4,7 @@ export default function Apply() {
   return (
     <PageWrapper>
       <ApplyBanner src="/applyBanner.png" />
-      <CountdownTimer deadline="2025-02-18" />
+      <CountdownTimer deadline="2025-02-19T23:59:59" />
     </PageWrapper>
   );
 }
