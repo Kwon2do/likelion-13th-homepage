@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { ResumeComponent } from "./Resume"; // ResumeComponent import
+
 interface Application {
   part: string;
   id: number;
@@ -24,9 +25,7 @@ const ApplicationList: React.FC = () => {
   const [authenticated, setAuthenticated] = useState<boolean>(false);
   const [password, setPassword] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
-
-  const itemsPerPage = 5;
-  const [lastId, setLastId] = useState<number | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>("전체");
 
   useEffect(() => {
     if (authenticated) {
@@ -34,14 +33,10 @@ const ApplicationList: React.FC = () => {
     }
   }, [authenticated]);
 
-  const fetchApplications = async (reset: boolean = false) => {
-    if (reset) setLastId(null);
-
+  const fetchApplications = async () => {
     try {
       setLoading(true);
-      let url = `https://port-0-likelion-13th-homepage-m6xxoqjg3249c6c2.sel4.cloudtype.app/applications?limit=${itemsPerPage}`;
-      if (lastId) url += `&lastId=${lastId}`;
-
+      const url = `https://port-0-likelion-13th-homepage-m6xxoqjg3249c6c2.sel4.cloudtype.app/applications`;
       const response = await fetch(url, {
         method: "GET",
         credentials: "include",
@@ -52,11 +47,7 @@ const ApplicationList: React.FC = () => {
       }
 
       const data: Application[] = await response.json();
-      setApplications((prev) => (reset ? data : [...prev, ...data]));
-
-      if (data.length > 0) {
-        setLastId(data[data.length - 1].id);
-      }
+      setApplications(data);
     } catch (err: any) {
       setError(err.message);
       console.error("Error fetching applications:", err);
@@ -74,23 +65,23 @@ const ApplicationList: React.FC = () => {
     }
   };
 
-  const renderStatus = (status: string) => {
-    switch (status) {
-      case "1":
-        return "재학중";
-      case "2":
-        return "휴학중";
-      case "3":
-        return "초과학기";
-      case "4":
-        return "졸업유예";
-      default:
-        return "알 수 없음";
-    }
-  };
+  // 지원자 수 계산
+  const totalCount = applications.length;
+  const frontendCount = applications.filter(
+    (app) => app.part === "프론트엔드"
+  ).length;
+  const backendCount = applications.filter(
+    (app) => app.part === "백엔드"
+  ).length;
+  const designCount = applications.filter(
+    (app) => app.part === "기획/디자인"
+  ).length;
 
-  const filteredApplications = applications.filter((app) =>
-    app.name.toLowerCase().includes(searchQuery.toLowerCase())
+  // 검색 & 카테고리 필터링
+  const filteredApplications = applications.filter(
+    (app) =>
+      app.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+      (selectedCategory === "전체" || app.part === selectedCategory)
   );
 
   if (!authenticated) {
@@ -113,6 +104,36 @@ const ApplicationList: React.FC = () => {
   return (
     <PageWrapper>
       <h2 style={{ color: "#ff7710" }}>지원자 목록</h2>
+
+      {/* 카테고리 및 전체 개수 표시 */}
+      <CategoryContainer>
+        <CategoryButton
+          selected={selectedCategory === "전체"}
+          onClick={() => setSelectedCategory("전체")}
+        >
+          전체 ({totalCount})
+        </CategoryButton>
+        <CategoryButton
+          selected={selectedCategory === "프론트엔드"}
+          onClick={() => setSelectedCategory("프론트엔드")}
+        >
+          프론트엔드 ({frontendCount})
+        </CategoryButton>
+        <CategoryButton
+          selected={selectedCategory === "백엔드"}
+          onClick={() => setSelectedCategory("백엔드")}
+        >
+          백엔드 ({backendCount})
+        </CategoryButton>
+        <CategoryButton
+          selected={selectedCategory === "기획/디자인"}
+          onClick={() => setSelectedCategory("기획/디자인")}
+        >
+          기획/디자인 ({designCount})
+        </CategoryButton>
+      </CategoryContainer>
+
+      {/* 검색창 */}
       <SearchWrapper>
         <input
           type="text"
@@ -121,6 +142,7 @@ const ApplicationList: React.FC = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </SearchWrapper>
+
       {loading ? (
         <p>로딩 중...</p>
       ) : error ? (
@@ -142,7 +164,17 @@ const ApplicationList: React.FC = () => {
               question3={app.question3}
               question4={app.question4}
               portfolio={app.portfolio}
-              renderStatus={renderStatus}
+              renderStatus={(status) =>
+                status === "1"
+                  ? "재학중"
+                  : status === "2"
+                  ? "휴학중"
+                  : status === "3"
+                  ? "초과학기"
+                  : status === "4"
+                  ? "졸업유예"
+                  : "알 수 없음"
+              }
             />
           ))}
         </>
@@ -153,30 +185,14 @@ const ApplicationList: React.FC = () => {
 
 export default ApplicationList;
 
-export const PageWrapper = styled.div`
+const PageWrapper = styled.div`
   padding: 100px 20px 20px;
   background-color: black;
   min-height: calc(100vh - 100px);
   box-sizing: border-box;
 `;
 
-export const PaginationWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #ff7710;
-    color: white;
-    cursor: pointer;
-    &:disabled {
-      background-color: #ccc;
-    }
-  }
-`;
-
-export const LoginWrapper = styled.div`
+const LoginWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -186,11 +202,31 @@ export const LoginWrapper = styled.div`
   color: white;
 `;
 
-export const SearchWrapper = styled.div`
+const SearchWrapper = styled.div`
   margin-bottom: 20px;
   input {
     width: 100%;
     padding: 10px;
     font-size: 16px;
+  }
+`;
+
+const CategoryContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+`;
+
+const CategoryButton = styled.button<{ selected: boolean }>`
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: ${(props) => (props.selected ? "#ff7710" : "#555")};
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: ${(props) => (props.selected ? "#e65c00" : "#777")};
   }
 `;
