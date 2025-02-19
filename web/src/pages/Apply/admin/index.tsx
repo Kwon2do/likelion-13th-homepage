@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import { ResumeComponent } from "./Resume"; // ResumeComponent import
+import { ResumeComponent } from "./Resume";
 
 interface Application {
   part: string;

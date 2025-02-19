@@ -19,9 +19,8 @@ export interface ResumeProps {
   question2: string;
   question3: string;
   question4: string;
-  portfolio: string; // PDF 파일 URL
+  portfolio: string;
   renderStatus: (status: string) => string;
-  /** 미리보기 모드 (슬라이더 등에서 사용) */
   isPreview?: boolean;
 }
 
