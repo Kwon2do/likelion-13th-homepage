@@ -126,12 +126,6 @@ const Step2Form: React.FC<Step2FormProps> = ({
             value="프론트엔드"
             {...register("part")}
           />
-          <Form.Check
-            type="radio"
-            label="백엔드"
-            value="백엔드"
-            {...register("part")}
-          />
         </div>
         {errors.part && (
           <span style={{ color: "red", fontSize: "12px" }}>

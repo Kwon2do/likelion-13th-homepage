@@ -11,8 +11,8 @@ function App() {
       <NavBar>
         <Routes>
           <Route path="/" element={<Onboard />} />
-          {/*<Route path="/apply" element={<Apply />} />*/}
-          {/*<Route path="/apply/form" element={<ApplyForm />} />*/}
+          <Route path="/apply" element={<Apply />} />
+          <Route path="/apply/form" element={<ApplyForm />} />
           <Route path="/apply/admin" element={<ApplyAdminPage />} />
         </Routes>
       </NavBar>

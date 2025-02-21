@@ -92,7 +92,7 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
               </StyledNavLink>
               <ApplyButton
                 onClick={() => {
-                  setShowModal(true);
+                  navigate("/apply");
                   setIsNavOpen(false);
                 }}
               >
