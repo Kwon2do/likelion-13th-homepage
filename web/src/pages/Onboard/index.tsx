@@ -67,7 +67,7 @@ export default function Onboard() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 2, duration: 0.8, ease: "easeInOut" }}
-              onClick={() => navigate("/apply")}
+              onClick={() => setShowModal(true)}
             >
               13기 아기사자 지원하기
             </Button>

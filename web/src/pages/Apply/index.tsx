@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
-import CountdownTimer from "./Counter";
+//import CountdownTimer from "./Counter";
 export default function Apply() {
   return (
     <PageWrapper>
       <ApplyBanner src="/applyBanner.png" />
-      <CountdownTimer deadline="2025-02-24T23:59:59" />
+      {/*<CountdownTimer deadline="2025-02-24T23:59:59" />*/}
     </PageWrapper>
   );
 }
