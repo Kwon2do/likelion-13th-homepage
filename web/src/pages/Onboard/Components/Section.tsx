@@ -3,7 +3,7 @@ import { Section } from "../styles/Onboard.styles";
 import ActivityComponent from "./Activity";
 import ScheduleComponent from "./Schedule";
 import CurriculumComponent from "./Curriculum";
-import AboutUsComponent from "./Aboutus";
+import AboutUsComponent from "./AboutUs";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import QuestionComponent from "./Question";

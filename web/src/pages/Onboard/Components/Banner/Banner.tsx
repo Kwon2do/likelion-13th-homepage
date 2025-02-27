@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
 import {
   BannerWrapper,
   BannerOverlay,
@@ -7,10 +6,10 @@ import {
   BannerTitle,
   BannerSubTitle,
   Highlight,
-  ScrollArrow
-} from './Banner.styles';
-import Button from '../../../../components/common/Button';
-import { ApplyModal } from '../../../../components/layout/Navigation/Navigation';
+  ScrollArrow,
+} from "./Banner.styles";
+import Button from "../../../../components/common/Button";
+import Modal from "../../../../components/common/Modal";
 
 interface BannerProps {
   showScrollArrow: boolean;
@@ -20,7 +19,7 @@ const Banner: React.FC<BannerProps> = ({ showScrollArrow }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleScrollDown = () => {
-    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
   };
 
   return (
@@ -58,7 +57,29 @@ const Banner: React.FC<BannerProps> = ({ showScrollArrow }) => {
           <ScrollArrow onClick={handleScrollDown}>↓</ScrollArrow>
         )}
       </BannerWrapper>
-      <ApplyModal showModal={showModal} setShowModal={setShowModal} />
+      <Modal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        title="멋쟁이사자처럼 인천대학교"
+      >
+        <div style={{ textAlign: "center" }}>
+          <img
+            src="/favicon.ico"
+            alt="멋쟁이사자처럼 아이콘"
+            style={{ width: "50px", marginBottom: "16px" }}
+          />
+          <div
+            style={{
+              fontFamily: "Pretendard-Bold",
+              fontSize: "20px",
+              marginBottom: "8px",
+            }}
+          >
+            지금은 지원 기간이 아니에요
+          </div>
+          <p>모집 일정은 홈페이지 하단 Q&A를 참고해주세요.</p>
+        </div>
+      </Modal>
     </>
   );
 };
